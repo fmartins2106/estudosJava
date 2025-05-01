@@ -5,9 +5,9 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Feriados26 {
+public class Feriados27 {
 
-    public static Set<LocalDate> gerarFeriado(int ano){
+    public static Set<LocalDate> gerarFeriados(int ano){
         Set<LocalDate> feriados = new HashSet<>();
         feriados.add(LocalDate.of(ano,1,1));
         feriados.add(LocalDate.of(ano, 4, 21));  // Tiradentes
@@ -46,18 +46,19 @@ public class Feriados26 {
     }
 
     public static boolean eDiaUtil(LocalDate date){
-        Set<LocalDate> feriados = gerarFeriado(date.getYear());
+        Set<LocalDate> feriados = gerarFeriados(date.getYear());
         DayOfWeek diaSemana = date.getDayOfWeek();
-        return diaSemana != DayOfWeek.SUNDAY &&
-                diaSemana != DayOfWeek.SATURDAY &&
+        return diaSemana != DayOfWeek.SATURDAY &&
+                diaSemana != DayOfWeek.SUNDAY &&
                 !feriados.contains(date);
     }
 
-    public static LocalDate ajustarProximoDiaUtil(LocalDate date){
+    public static LocalDate ajustarParaProximoDiaUtil(LocalDate date){
         if (eDiaUtil(date)){
             date = date.plusDays(1);
         }
         return date;
     }
+
 
 }
