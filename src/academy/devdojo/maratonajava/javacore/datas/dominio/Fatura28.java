@@ -57,7 +57,7 @@ public class Fatura28 {
     }
 
     public void setValor(double valor) {
-        validacaoNumeroFatura(valor);
+        validacaoValorFatura(valor);
         this.valor = valor;
     }
 
