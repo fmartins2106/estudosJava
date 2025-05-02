@@ -162,7 +162,6 @@ public class Frota43 {
         Optional<Veiculo43> veiculo43 = pesquisaPorPlaca();
         if (veiculo43.isPresent()){
             veiculo43.get().mostrarHistoricoIPVA();
-            veiculo43.get().mostrarHistoricoIPVA();
             return;
         }
         System.out.println("Placa não encontrada.");
