@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class SistemaFaturas26 {
+public class SistemaFaturas27 {
     private static final Scanner scanner = new Scanner(System.in);
     private static List<Fatura27> faturasCadastradas = new ArrayList<>();
     private static ResourceBundle bundle;
