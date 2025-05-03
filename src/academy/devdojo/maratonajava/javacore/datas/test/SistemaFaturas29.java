@@ -60,7 +60,7 @@ public class SistemaFaturas29 {
             idioma = scanner.nextLine().trim();
             bundle = Mensagens29.carregar(idioma);
         }while (!idioma.equalsIgnoreCase("en") && !idioma.equalsIgnoreCase("pt"));
-        
+
     }
 
     private static void cadastroFatura(){
