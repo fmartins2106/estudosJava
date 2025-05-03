@@ -58,9 +58,9 @@ public class SistemaFaturas28 {
     }
 
     private static void cadastroFatura(){
-        String numero = ValidadordEntradasFatura28.validandoNumeroFatura();
-        double valor = ValidadordEntradasFatura28.validandoValorFatura();
-        LocalDate vencimento = ValidadordEntradasFatura28.validandoDataValidade();
+        String numero = ValidadorDeEntradasFatura28.validandoNumeroFatura();
+        double valor = ValidadorDeEntradasFatura28.validandoValorFatura();
+        LocalDate vencimento = ValidadorDeEntradasFatura28.validandoDataValidade();
         Fatura28 fatura28 = new Fatura28(numero,valor,vencimento);
         faturasCadastradas.add(fatura28);
         System.out.println("Sugestão de vencimento para próxima fatura:"+fatura28.sugestaoVencimentoProximaFatura());

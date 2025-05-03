@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class ValidadordEntradasFatura28 {
+public class ValidadorDeEntradasFatura28 {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static String validandoNumeroFatura(){
