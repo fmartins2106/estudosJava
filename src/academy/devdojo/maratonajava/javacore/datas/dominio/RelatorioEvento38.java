@@ -27,6 +27,5 @@ public class RelatorioEvento38 {
         }catch (IOException e){
             e.printStackTrace();
         }
-
     }
 }
