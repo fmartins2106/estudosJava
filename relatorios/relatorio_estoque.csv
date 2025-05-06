@@ -1,4 +1,4 @@
 NOME                ;PREÇO     ;QUANTIDADE;ESTOQUE MÍNIMO ;EXTRA               
-Arroz Branco        ; 20.0      ; 100       ; 100            ; Válidade:10/10/2025 
-Arroz Parbolizxado  ; 10.0      ; 30        ; 20             ; Válidade:10/10/2024 
-Chaleira Eletrica   ; 110.0     ; 100       ; 100            ; Meses Garantia:3 Categoria:Eletrodoméstico
+Arroz Branco        ;20.0      ;100       ;100            ;Válidade:10/10/2025 
+Arroz Parbolizado   ;10.0      ;200       ;200            ;Válidade:10/10/2025 
+Chaleira Eletrica   ;100.0     ;200       ;200            ;Meses garantia:3Categoria:Eletrodomestico
