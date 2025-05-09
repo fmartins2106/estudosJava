@@ -67,7 +67,7 @@ public class Fatura28 {
 
     public void setVencimento(LocalDate vencimento) {
         validacaoDataVencimento(vencimento);
-        this.vencimento = vencimento;
+        this.vencimento = Feriados28.ajustarProximoDiaUtil(vencimento);
     }
 
     public Long getDiasAtraso(){

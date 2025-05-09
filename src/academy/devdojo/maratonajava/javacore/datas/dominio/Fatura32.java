@@ -1,8 +1,8 @@
 package academy.devdojo.maratonajava.javacore.datas.dominio;
 
-import academy.devdojo.maratonajava.javacore.datas.execessoes.DataVencimentoFaturaException31;
-import academy.devdojo.maratonajava.javacore.datas.execessoes.NumeroFaturaException31;
-import academy.devdojo.maratonajava.javacore.datas.execessoes.ValorFaturaException31;
+import academy.devdojo.maratonajava.javacore.datas.execessoes.DataVencimentoFaturaException32;
+import academy.devdojo.maratonajava.javacore.datas.execessoes.NumeroFaturaException32;
+import academy.devdojo.maratonajava.javacore.datas.execessoes.ValorFaturaException32;
 
 import java.text.MessageFormat;
 import java.time.LocalDate;
@@ -13,13 +13,13 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ResourceBundle;
 
-public class Fatura31 {
+public class Fatura32 {
     private String numero;
     private double valor;
     private LocalDate dataVencimento;
     private LocalDateTime dataHoraCadastro;
 
-    public Fatura31(String numero, double valor, LocalDate dataVencimento) {
+    public Fatura32(String numero, double valor, LocalDate dataVencimento) {
         setNumero(numero);
         setValor(valor);
         setDataVencimento(dataVencimento);
@@ -27,20 +27,20 @@ public class Fatura31 {
     }
 
     public static void validacaoNumeroFatura(String numero){
-        if (numero == null || numero.isEmpty() || !numero.matches("^[a-zA-Z0-9/._-]+$")){
-            throw new NumeroFaturaException31();
+        if (numero == null || numero.isEmpty() || !numero.matches("^[0-9a-zA-Z/._-]+$")){
+            throw new NumeroFaturaException32();
         }
     }
 
-    public static void validacaoValorFatura(double valor){
-        if (valor < ValorFaturaException31.MENOR_VALOR_FATURA){
-            throw new ValorFaturaException31();
+    public static void validacaoValorFatura(Double valor){
+        if (valor < ValorFaturaException32.MENOR_VALOR_FATURA){
+            throw new ValorFaturaException32();
         }
     }
 
     public static void validacaoDataVencimento(LocalDate dataVencimento){
         if (dataVencimento == null /*|| dataVencimento.isBefore(LocalDate.now())*/){
-            throw new DataVencimentoFaturaException31();
+            throw new DataVencimentoFaturaException32();
         }
     }
 
@@ -68,9 +68,8 @@ public class Fatura31 {
 
     public void setDataVencimento(LocalDate dataVencimento) {
         validacaoDataVencimento(dataVencimento);
-        this.dataVencimento = Feriados31.ajustarProximoDiaUtil(dataVencimento);
+        this.dataVencimento = Feriados32.ajustarProximoDiaUtil(dataVencimento);
     }
-
 
     public Long getDiasAtraso(){
         return Math.max(0, ChronoUnit.DAYS.between(dataVencimento,LocalDate.now()));
@@ -80,22 +79,23 @@ public class Fatura31 {
         return Period.between(dataVencimento,LocalDate.now());
     }
 
-    public LocalDate sugestaoVencimentoProximaFatura(){
+    public LocalDate sugestaoVencimentoFatura(){
         return LocalDate.now().with(TemporalAdjusters.lastDayOfMonth());
     }
 
-    public void exibirFatura(ResourceBundle bundle, double multa){
-        System.out.println("_______________________________________________________________________________________");
+    public void exibirResumoFatura(ResourceBundle bundle, double multa){
         Period p = getPeriodoAtraso();
+        System.out.println("_____________________________________________________________________________________");
         System.out.println(MessageFormat.format("{0} : {1}",bundle.getString("fatura.numero"),numero));
         System.out.println(MessageFormat.format("{0} : R${1,number,#,##0.00}",bundle.getString("fatura.valor"),valor));
         System.out.println(MessageFormat.format("{0} : {1}",bundle.getString("fatura.vencimento"),dataVencimento));
-        System.out.println(MessageFormat.format("{0} : {1} ano(s), {2} mes(es), {3} dia(s).",bundle.getString("fatura.atraso")
-        ,p.getYears(),p.getMonths(),p.getDays()));
+        System.out.println(MessageFormat.format("{0} : {1} ano(s), {2} mes(es), {3} dia(s)",bundle.getString("fatura.atraso"),
+                p.getYears(),p.getMonths(),p.getDays()));
         System.out.println(MessageFormat.format("{0} : R${1,number,#,##0.00}",bundle.getString("fatura.multa"),multa));
         System.out.println(MessageFormat.format("{0} : {1}",bundle.getString("fatura.dataCadastro"),
                 dataHoraCadastro.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))));
-        System.out.println("_______________________________________________________________________________________");
+        System.out.println("_____________________________________________________________________________________");
     }
+
 
 }

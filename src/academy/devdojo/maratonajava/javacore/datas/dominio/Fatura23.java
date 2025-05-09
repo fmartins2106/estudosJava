@@ -68,7 +68,7 @@ public class Fatura23 {
 
     public void setVencimento(LocalDate vencimento) {
         validacaoDataVencimento(vencimento);
-        this.vencimento = vencimento;
+        this.vencimento = Feriados23.ajustarDataHora(vencimento);
     }
 
     public Long getDiasAtraso(){
