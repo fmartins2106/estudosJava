@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package academy.devdojo.maratonajava.javacore.excessoes;
 
 public class EstoqueMinimoProdutoBase31 extends IllegalArgumentException {
@@ -7,13 +7,4 @@ public class EstoqueMinimoProdutoBase31 extends IllegalArgumentException {
         super(String.format("Estoque mínimo não pode ser menor que %d.",MENOR_ESTOQUE_MINIMO));
     }
 }
-=======
-package academy.devdojo.maratonajava.javacore.excessoes;
 
-public class EstoqueMinimoProdutoBase31 extends IllegalArgumentException {
-    public static final int MENOR_ESTOQUE_MINIMO = 0;
-    public EstoqueMinimoProdutoBase31() {
-        super(String.format("Estoque mínimo não pode ser menor que %d.",MENOR_ESTOQUE_MINIMO));
-    }
-}
->>>>>>> a3d11752a9fc400590a7a4f4542f729c1f492e90
