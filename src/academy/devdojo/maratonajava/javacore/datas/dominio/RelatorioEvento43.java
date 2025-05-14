@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class RelatorioEvento43 {
-    //sdsdsd
+
     public void gerarRelatorio(List<EventoBase43> eventoBase43s){
         Path pastaEvento = Paths.get("relatorios");
         try {
