@@ -9,9 +9,10 @@ import java.nio.file.StandardOpenOption;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class RelatorioEvento43 {
-    public void gerarRelatorio(List<EventoBase43>eventoBase43s){
-        Path pastaArquivo = Paths.get("relatorio");
+public class RelatorioEvento44 {
+
+    public void gerarRelatorio(List<EventoBase44> eventoBase44s){
+        Path pastaArquivo = Paths.get("relatorios");
         try {
             if (Files.notExists(pastaArquivo)){
                 Files.createDirectories(pastaArquivo);
@@ -20,14 +21,14 @@ public class RelatorioEvento43 {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
             StringBuilder conteudo = new StringBuilder();
             conteudo.append("\"nome evento\",\"local evento\",\"data e hora\"\n");
-            for (EventoBase43 eventoBase43 : eventoBase43s) {
-                String linha = String.format("\"%s\",\"%s\",\"%s\"",eventoBase43.getNomerEvento(),
-                        eventoBase43.getLocalEvento(),eventoBase43.getDataHora().format(formatter));
+            for (EventoBase44 eventoBase44 : eventoBase44s) {
+                String linha = String.format("\"%s\",\"%s\",\"%s\"",
+                        eventoBase44.getNomeEvento(),eventoBase44.getLocalEvento(),eventoBase44.getDataHora().format(formatter));
                 conteudo.append(linha).append("\n");
             }
-            Files.writeString(caminhoArquivo,conteudo,StandardCharsets.UTF_8,StandardOpenOption.CREATE,
+            Files.writeString(caminhoArquivo,conteudo, StandardCharsets.UTF_8, StandardOpenOption.CREATE,
                     StandardOpenOption.TRUNCATE_EXISTING);
-            System.out.println("relatório gerado com sucesso:"+caminhoArquivo.toAbsolutePath());
+            System.out.println("Relatório gerado com sucesso:"+caminhoArquivo.toAbsolutePath());
         }catch (IOException e){
             e.printStackTrace();
         }
