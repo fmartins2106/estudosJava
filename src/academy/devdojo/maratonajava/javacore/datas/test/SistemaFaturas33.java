@@ -77,9 +77,9 @@ public class SistemaFaturas33 {
     }
     private static void exibirMenu(){
         System.out.println("\n"+bundle.getString("menu.opcao"));
-        System.out.println("[1] Cadastro fatura.");
-        System.out.println("[2] Lista de faturas cadastradas.");
-        System.out.println("[3] Sair.");
+        System.out.println("[1] -"+bundle.getString("menu.1"));
+        System.out.println("[2] -"+bundle.getString("menu.2"));
+        System.out.println("[3] -"+bundle.getString("menu.3"));
     }
 
 }
