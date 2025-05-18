@@ -1,4 +1,4 @@
-NOME                , PREÇO     , QUANTIDADE, ESTOQUE MÍNIMO, EXTRA               
-Arroz Branco        , 10.0      , 100       , 100       , VALIDADE:10/10/2025 
-Arroz Vermelho      , 10.0      , 100       , 200       , VALIDADE:10/10/2025 
-Chaleira Eletrica   , 100.0     , 100       , 100       , MESES GARANTIA:3 |CATEGORIA:eletrodomestico
+"nome","preço","quantidade","estoque mínimo","extra"
+"Arroz Branco","10,00","100","100","validade:10/10/2025"
+"Arroz Vermelho","20,00","10","10","validade:10/10/2024"
+"Chaleira Eletrica","100,00","100","100","Meses Garantia:3 | Categoria:Eletrodomestico"
