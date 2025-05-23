@@ -80,4 +80,21 @@ public class Produto42 implements Vendavel42{
         return this.quantidade += quantidadeDevolvida;
     }
 
+//   @Override
+//    public boolean equals(Object o){
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Produto42 that = (Produto42) o;
+//        return Double.compare(preco,that.preco) == 0 &&
+//        nome.equalsIgnoreCase(that.nome);
+//   }
+//
+//   @Override
+//    public int hashCode(){
+//        int result = nome.toLowerCase().hashCode();
+//        result = 31 * result + Double.hashCode(preco);
+//        return result;
+//   }
+
+
 }

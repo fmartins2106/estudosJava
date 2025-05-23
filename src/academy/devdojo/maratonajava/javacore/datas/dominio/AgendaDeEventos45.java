@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class AgendaDeEventos45 {
     private static final Scanner scanner = new Scanner(System.in);
-
     private List<EventoBase45> eventoBase45s;
 
     public AgendaDeEventos45(){
