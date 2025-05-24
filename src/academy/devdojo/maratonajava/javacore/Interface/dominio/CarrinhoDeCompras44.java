@@ -1,23 +1,22 @@
 package academy.devdojo.maratonajava.javacore.Interface.dominio;
 
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
-public class CarrinhoDeCompras43 {
-    private final Map<Produto43,Integer> carrinhoDeCompras = new HashMap<>();
+public class CarrinhoDeCompras44 {
+    private final Map<Produto44,Integer> carrinhoDeCompras = new LinkedHashMap<>();
     public static final DecimalFormat df = new DecimalFormat("0.00");
 
-    public void addProdutoCarrinho(Produto43 produto43, int quantidade){
-        if (produto43.retirarEstoque(quantidade)){
-            carrinhoDeCompras.put(produto43,carrinhoDeCompras.getOrDefault(produto43,0)+quantidade);
+    public void addProdutoCarrinho(Produto44 produto44, int quantidade){
+        if (produto44.retirarEstoque(quantidade)){
+            carrinhoDeCompras.put(produto44,carrinhoDeCompras.getOrDefault(produto44,0)+quantidade);
             System.out.println("Produto adicionado no carrinho com sucesso.");
         }
     }
 
     public void retirarProdutoCarrinho(int index){
-        Produto43 produtoSelecionado = (Produto43) carrinhoDeCompras.keySet().toArray()[index];
+        List<Produto44> produtos = new ArrayList<>(carrinhoDeCompras.keySet());
+        Produto44 produtoSelecionado = produtos.get(index);
         int quantidade = carrinhoDeCompras.remove(produtoSelecionado);
         produtoSelecionado.devolverEstoque(quantidade);
         System.out.println("Produto retirado do carrinho com sucesso.");
@@ -30,20 +29,20 @@ public class CarrinhoDeCompras43 {
         }
         int i = 1;
         double total = 0;
-        for (Map.Entry<Produto43,Integer> entry : carrinhoDeCompras.entrySet()){
-            Produto43 produto43 = entry.getKey();
+        for (Map.Entry<Produto44,Integer> entry : carrinhoDeCompras.entrySet()){
+            Produto44 produto44 = entry.getKey();
             int quantidade = entry.getValue();
-            double subtotal = produto43.getPreco() * quantidade;
-            System.out.println(i+" - Nome:"+produto43.getNome()+" |Quantidade:"+quantidade+" |Total:R$"+df.format(subtotal));
+            double subtotal = produto44.getPreco() * quantidade;
+            System.out.println(i+" - Nome:"+produto44.getNome()+" |Quantidade:"+quantidade+" |Total::R$"+df.format(subtotal));
             total += subtotal;
             i++;
         }
-        System.out.println("Total do carrinho = R$"+df.format(total));
+        System.out.println("Total do carrinho:R$"+df.format(total));
     }
 
     public double calcularTotal(){
         double total = 0;
-        for (Map.Entry<Produto43,Integer> entry : carrinhoDeCompras.entrySet()){
+        for (Map.Entry<Produto44,Integer> entry : carrinhoDeCompras.entrySet()){
             total += entry.getKey().getPreco() * entry.getValue();
         }
         return total;
@@ -53,8 +52,7 @@ public class CarrinhoDeCompras43 {
         return carrinhoDeCompras.isEmpty();
     }
 
-    public Map<Produto43,Integer> getCarrinhoDeCompras(){
+    public Map<Produto44, Integer> getCarrinhoDeCompras() {
         return carrinhoDeCompras;
     }
-
 }
