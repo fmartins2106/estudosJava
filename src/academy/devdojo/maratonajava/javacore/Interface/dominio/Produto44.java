@@ -102,7 +102,24 @@ public class Produto44 implements Vendavel44{
         int result = nome.toLowerCase().hashCode();
         result = 31 * result + Double.hashCode(preco);
         return result;
-
     }
+
+
+//   @Override
+//    public boolean equals(Object o){
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Produto44 that = (Produto44) o;
+//        return Double.compare(preco,that.preco) == 0 &&
+//                nome.equalsIgnoreCase(that.nome);
+//   }
+//
+//   @Override
+//    public int hashCode(){
+//        int result = nome.toLowerCase().hashCode();
+//        result = 31 * result + Double.hashCode(preco);
+//        return result;
+//   }
+
 
 }

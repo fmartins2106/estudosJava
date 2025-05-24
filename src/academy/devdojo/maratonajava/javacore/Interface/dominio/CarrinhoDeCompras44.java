@@ -1,5 +1,6 @@
 package academy.devdojo.maratonajava.javacore.Interface.dominio;
 
+import javax.swing.plaf.PanelUI;
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -21,7 +22,7 @@ public class CarrinhoDeCompras44 {
         produtoSelecionado.devolverEstoque(quantidade);
         System.out.println("Produto retirado do carrinho com sucesso.");
     }
-
+    
     public void mostrarCarrinho(){
         if (carrinhoDeCompras.isEmpty()){
             System.out.println("Carrinho vazio.");
