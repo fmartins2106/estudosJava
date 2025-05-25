@@ -5,6 +5,7 @@ import academy.devdojo.maratonajava.javacore.excessoes.NomeProduto44;
 import academy.devdojo.maratonajava.javacore.excessoes.PrecoProduto44;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Produto44 implements Vendavel44{
@@ -89,37 +90,19 @@ public class Produto44 implements Vendavel44{
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Produto44 that = (Produto44) o;
-        return Double.compare(preco, that.preco) == 0 &&
-                nome.equalsIgnoreCase(that.nome);
+
+        Produto44 produto44 = (Produto44) o;
+        return Double.compare(preco, produto44.preco) == 0 && nome.equalsIgnoreCase(produto44.nome);
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int result = nome.toLowerCase().hashCode();
         result = 31 * result + Double.hashCode(preco);
         return result;
     }
-
-
-//   @Override
-//    public boolean equals(Object o){
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Produto44 that = (Produto44) o;
-//        return Double.compare(preco,that.preco) == 0 &&
-//                nome.equalsIgnoreCase(that.nome);
-//   }
-//
-//   @Override
-//    public int hashCode(){
-//        int result = nome.toLowerCase().hashCode();
-//        result = 31 * result + Double.hashCode(preco);
-//        return result;
-//   }
-
 
 }
