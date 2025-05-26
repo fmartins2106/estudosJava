@@ -15,6 +15,46 @@ public class CarrinhoDeCompras44 {
         }
     }
 
+//    public void addCarrinho(Produto44 produto44,int quantidade){
+//        if (produto44.retirarEstoque(quantidade)){
+//            int quantidadeAtual = carrinhoDeCompras.getOrDefault(produto44,0);
+//            int novaQuantidade = quantidadeAtual + quantidade;
+//            carrinhoDeCompras.put(produto44,novaQuantidade);
+//            System.out.println("Produto adicionado no carrinho.");
+//        }
+//    }
+//
+//    public void addCarrinho(Produto44 produto44, int quantidade){
+//        if (produto44.retirarEstoque(quantidade)){
+//            int quantidadeAtual = carrinhoDeCompras.getOrDefault(produto44,0);
+//            int novaQuantidade = quantidadeAtual + quantidade;
+//            carrinhoDeCompras.put(produto44,novaQuantidade);
+//            System.out.println("Produto adicionado no carrinho.");
+//        }
+//    }
+//
+//    public void retirarProdutoCarrinho(int index){
+//        List<Produto44> produtos = new ArrayList<>(carrinhoDeCompras.keySet());
+//        Produto44 produtoSelecionado = produtos.get(index);
+//        int quantidade = carrinhoDeCompras.remove(produtoSelecionado);
+//        produtoSelecionado.devolverEstoque(quantidade);
+//        System.out.println("Produto removido com sucesso.");
+//    }
+//
+//    public void mostrarCarrinho(){
+//        int i = 1;
+//        double total = 0;
+//        for (Map.Entry<Produto44,Integer> entry : carrinhoDeCompras.entrySet()){
+//            Produto44 produto44 = entry.getKey();
+//            int quantidade = entry.getValue();
+//            double subTotal = produto44.getPreco() * quantidade;
+//            System.out.println(i+" - Produto:"+produto44.getNome()+" |Quantidade:"+quantidade+" |Preço:R$"+produto44.getPreco());
+//            total += subTotal;
+//        }
+//        System.out.println("Total do Carrinho:R$"+df.format(total));
+//    }
+
+
     public void retirarProdutoCarrinho(int index){
         List<Produto44> produtos = new ArrayList<>(carrinhoDeCompras.keySet());
         Produto44 produtoSelecionado = produtos.get(index);
