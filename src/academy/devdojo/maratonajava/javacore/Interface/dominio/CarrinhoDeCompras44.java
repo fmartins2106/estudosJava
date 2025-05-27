@@ -14,53 +14,12 @@ public class CarrinhoDeCompras44 {
             System.out.println("Produto adicionado no carrinho com sucesso.");
         }
     }
-
-//    public void addCarrinho(Produto44 produto44,int quantidade){
-//        if (produto44.retirarEstoque(quantidade)){
-//            int quantidadeAtual = carrinhoDeCompras.getOrDefault(produto44,0);
-//            int novaQuantidade = quantidadeAtual + quantidade;
-//            carrinhoDeCompras.put(produto44,novaQuantidade);
-//            System.out.println("Produto adicionado no carrinho.");
-//        }
-//    }
-//
-//    public void addCarrinho(Produto44 produto44, int quantidade){
-//        if (produto44.retirarEstoque(quantidade)){
-//            int quantidadeAtual = carrinhoDeCompras.getOrDefault(produto44,0);
-//            int novaQuantidade = quantidadeAtual + quantidade;
-//            carrinhoDeCompras.put(produto44,novaQuantidade);
-//            System.out.println("Produto adicionado no carrinho.");
-//        }
-//    }
-//
-//    public void retirarProdutoCarrinho(int index){
-//        List<Produto44> produtos = new ArrayList<>(carrinhoDeCompras.keySet());
-//        Produto44 produtoSelecionado = produtos.get(index);
-//        int quantidade = carrinhoDeCompras.remove(produtoSelecionado);
-//        produtoSelecionado.devolverEstoque(quantidade);
-//        System.out.println("Produto removido com sucesso.");
-//    }
-//
-//    public void mostrarCarrinho(){
-//        int i = 1;
-//        double total = 0;
-//        for (Map.Entry<Produto44,Integer> entry : carrinhoDeCompras.entrySet()){
-//            Produto44 produto44 = entry.getKey();
-//            int quantidade = entry.getValue();
-//            double subTotal = produto44.getPreco() * quantidade;
-//            System.out.println(i+" - Produto:"+produto44.getNome()+" |Quantidade:"+quantidade+" |Preço:R$"+produto44.getPreco());
-//            total += subTotal;
-//        }
-//        System.out.println("Total do Carrinho:R$"+df.format(total));
-//    }
-
-
     public void retirarProdutoCarrinho(int index){
         List<Produto44> produtos = new ArrayList<>(carrinhoDeCompras.keySet());
         Produto44 produtoSelecionado = produtos.get(index);
         int quantidade = carrinhoDeCompras.remove(produtoSelecionado);
         produtoSelecionado.devolverEstoque(quantidade);
-        System.out.println("Produto retirado do carrinho com sucesso.");
+        System.out.println("Produto retirado do Carrinho.");
     }
 
     public void mostrarCarrinho(){
@@ -73,12 +32,12 @@ public class CarrinhoDeCompras44 {
         for (Map.Entry<Produto44,Integer> entry : carrinhoDeCompras.entrySet()){
             Produto44 produto44 = entry.getKey();
             int quantidade = entry.getValue();
-            double subtotal = produto44.getPreco() * quantidade;
-            System.out.println(i+" - Nome:"+produto44.getNome()+" |Quantidade:"+quantidade+" |Total::R$"+df.format(subtotal));
-            total += subtotal;
+            double subTotal = produto44.getPreco() * quantidade;
+            System.out.println(i+" - Produto:"+produto44.getNome()+" |Quantidade:"+quantidade+" |Preço:R$"+produto44.getPreco());
+            total += subTotal;
             i++;
         }
-        System.out.println("Total do carrinho:R$"+df.format(total));
+        System.out.println("Valor total do carrinho:"+df.format(total));
     }
 
     public double calcularTotal(){
