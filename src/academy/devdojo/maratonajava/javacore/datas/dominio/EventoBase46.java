@@ -1,7 +1,6 @@
 package academy.devdojo.maratonajava.javacore.datas.dominio;
 
 import academy.devdojo.maratonajava.javacore.datas.execessoes.DataHoraInvaliuda46;
-import academy.devdojo.maratonajava.javacore.datas.execessoes.LocalEventoBase44;
 import academy.devdojo.maratonajava.javacore.datas.execessoes.LocalEventoBase46;
 import academy.devdojo.maratonajava.javacore.datas.execessoes.NomeEventoBase46;
 
@@ -14,7 +13,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-public class EventoBase46 implements Agendavel46{
+public class EventoBase46 implements Agendavel46, Comparable<EventoBase46>{
     private String nomeEvento;
     private String localEvento;
     private ZonedDateTime dataHora;
@@ -105,4 +104,12 @@ public class EventoBase46 implements Agendavel46{
         System.out.println("Data completa:"+getDataCompleta());
         System.out.println("Está no futuro?:"+(estaNoFuturo() ? "Sim." : "Não."));
     }
+
+    @Override
+    public int compareTo(EventoBase46 outroEvento) {
+        return this.dataHora.compareTo(outroEvento.getDataHora());
+    }
+
+
+
 }

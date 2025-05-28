@@ -4,6 +4,7 @@ import academy.devdojo.maratonajava.javacore.datas.execessoes.LocalEventoBase46;
 import academy.devdojo.maratonajava.javacore.datas.execessoes.NomeEventoBase46;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,6 +15,52 @@ public class AgendaDeEventos46 {
 
     public AgendaDeEventos46(){
         this.eventoBase46s = new ArrayList<>();
+    }
+
+    public static final Comparator<EventoBase46> COMPARATOR_POR_DATA =
+            Comparator.comparing(EventoBase46::getDataHora);
+
+    public static final Comparator<EventoBase46> COMPARATOR_NOME_EVENTO =
+            Comparator.comparing(EventoBase46::getNomeEvento);
+
+
+    public void listarEventoPorData(){
+        if (eventoBase46s.isEmpty()){
+            System.out.println("Nenhum evento foi cadastrado.");
+            return;
+        }
+        eventoBase46s.stream().sorted(COMPARATOR_POR_DATA).forEach(eventoBase46 -> {
+            System.out.println("_____________________________________________________________________________________");
+            eventoBase46.exibirInfo();
+            System.out.println("_____________________________________________________________________________________");
+        });
+    }
+
+    public void listarEventosPorNome(){
+        if (eventoBase46s.isEmpty()){
+            System.out.println("Nenhum evento foi cadastrado.");
+            return;
+        }
+        eventoBase46s.stream().sorted(COMPARATOR_NOME_EVENTO).forEach(eventoBase46 -> {
+            System.out.println("_____________________________________________________________________________________");
+            eventoBase46.exibirInfo();
+            System.out.println("_____________________________________________________________________________________");
+        });
+    }
+
+    public static final Comparator<EventoBase46> COMPARATOR_LOCAL_EVENTO =
+            Comparator.comparing(EventoBase46::getLocalEvento);
+
+    public void listarEventosLocal(){
+        if (eventoBase46s.isEmpty()){
+            System.out.println("Nenhum evento foi cadastrado.");
+            return;
+        }
+        eventoBase46s.stream().sorted(COMPARATOR_LOCAL_EVENTO).forEach(eventoBase46 -> {
+            System.out.println("_____________________________________________________________________________________");
+            eventoBase46.exibirInfo();
+            System.out.println("_____________________________________________________________________________________");
+        });
     }
 
     public static String validandoNomeEvento(){

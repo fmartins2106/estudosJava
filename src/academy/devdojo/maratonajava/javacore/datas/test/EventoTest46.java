@@ -21,9 +21,10 @@ public class EventoTest46 {
             exibirMenu();
             opcao = letInt("Digite uma das opções acima:");
             escolhaOpcoes(opcao);
-        }while (opcao != 6);
+        }while (opcao != 7);
         System.out.println(">>>Finalizando sistema.");
     }
+
 
     private static void reagendar(){
         if (agendaDeEventos46.getEventoBase46s().isEmpty()){
@@ -91,6 +92,9 @@ public class EventoTest46 {
                 agendaDeEventos46.excluirEvento();
                 break;
             case 6:
+                agendaDeEventos46.listarEventoPorData();
+                break;
+            case 7:
                 break;
             default:
                 System.out.println("Erro. Digite uma opção válida.");
@@ -103,7 +107,8 @@ public class EventoTest46 {
         System.out.println("[3] Reagendar evento.");
         System.out.println("[4] Exportar relatório.");
         System.out.println("[5] Excluir evento.");
-        System.out.println("[6] Sair.");
+        System.out.println("[6] Lista ordenada por nada.");
+        System.out.println("[7] Sair.");
     }
 
 }
