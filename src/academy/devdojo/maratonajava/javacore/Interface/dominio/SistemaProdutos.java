@@ -5,9 +5,8 @@ import academy.devdojo.maratonajava.javacore.excessoes.NomeDadosProduto;
 import academy.devdojo.maratonajava.javacore.excessoes.PrecoDadosProduto;
 import academy.devdojo.maratonajava.javacore.excessoes.QuantidadeDadosProduto;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import javax.swing.plaf.SplitPaneUI;
+import java.util.*;
 
 public class SistemaProdutos {
     private static final Scanner scanner = new Scanner(System.in);
@@ -65,8 +64,25 @@ public class SistemaProdutos {
         }
     }
 
-    public void addProdutos(DadosProduto01 dadosProduto01){
-        produtos.put(dadosProduto01.getNome(),dadosProduto01);
+    public boolean addProduto(DadosProduto01 produto01){
+        return produtos.putIfAbsent(produto01.getNome(),produto01) == null;
+    }
+
+    public boolean altualzarProduto(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
+        return produtos.computeIfPresent(nome,(k,v) -> {
+            v.setPreco(novoPreco);
+            v.setQuantidade(novaQuantidade);
+            v.setDescricao(novaDescricao);
+            return v;
+        }) != null;
+    }
+
+    public boolean removerProduto(String nome){
+        return produtos.remove(nome) != null;
+    }
+
+    public DadosProduto01 buscarProduto(String nome){
+        return produtos.get(nome);
     }
 
     public void listarProdutos(){
@@ -74,34 +90,29 @@ public class SistemaProdutos {
             System.out.println("Nenhum produto foi cadastrado.");
             return;
         }
-        produtos.forEach(produtos -> System.out.println(produtos));
+        produtos.forEach((nome,produto) -> System.out.println(nome + " =>" + produto));
     }
 
-    public void removerProduto(String nome){
-        if (produtos.isEmpty()){
-            System.out.println("Nenhum produto cadastrado.");
-            return;
-        }
-        DadosProduto01 removido = produtos.remove(nome);
-        if (removido != null) {
-            System.out.println("Produto removido com sucesso.");
-            return;
-        }
-        System.out.println("Produto não encontrado.");
+    public void gerarRelatorioEstoque(){
+        produtos.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
+                .forEach(e -> System.out.println(e.getKey() + "Quantidade:"+e.getValue().getQuantidade()));
     }
 
-    public void buscarProduto(String nome){
-        if (produtos.isEmpty()){
-            System.out.println("Nenhum produto cadastrado.");
-            return;
-        }
-        DadosProduto01 produto01 = produtos.get(nome);
+    public double calcularValorTotalEstoque(){
+        return produtos.values().stream().mapToDouble(p -> p.getPreco() * p.getQuantidade())
+                .sum();
+    }
 
-        if (produto01 != null){
-            System.out.println("Produto encontrado."+nome);
-            return;
-        }
-        System.out.println("Produto não encontrado.");
+    public Set<String> getNomesProdutos(){
+        return produtos.keySet();
+    }
+
+    public Collection<DadosProduto01> getProdutos(){
+        return produtos.values();
+    }
+
+    public Set<Map.Entry<String, DadosProduto01>> getEntrafadas(){
+        return produtos.entrySet();
     }
 
 
