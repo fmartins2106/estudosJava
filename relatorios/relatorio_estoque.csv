@@ -1,4 +1,4 @@
 "nome","preço","quantidade","estoque mínimo","extra"
-"Arroz Branco","10,00","100","100","validade:10/10/2025"
-"Arroz Vermelho","20,00","10","10","validade:10/10/2024"
-"Chaleira Eletrica","100,00","100","100","Meses Garantia:3 | Categoria:Eletrodomestico"
+"Arroz","20,00","200","2000"," |Data de validade:10/10/2024"
+"Feijoa","12,00","10","1000"," |Data de validade:10/10/2025"
+"Chaleira Eletrica","200,00","100","100"," |Meses de garantia:3 |Categoria:Eletrodomestico"
