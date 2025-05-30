@@ -1,13 +1,13 @@
 package academy.devdojo.maratonajava.javacore.Interface.Test;
 
 import academy.devdojo.maratonajava.javacore.Interface.dominio.DadosProduto01;
-import academy.devdojo.maratonajava.javacore.Interface.dominio.SistemaProdutos;
+import academy.devdojo.maratonajava.javacore.Interface.dominio.SistemaProdutos01;
 
 import java.util.Scanner;
 
 public class ProdutoApp01 {
     private static final Scanner scanner = new Scanner(System.in);
-    private static final SistemaProdutos sistemaProdutos = new SistemaProdutos();
+    private static final SistemaProdutos01 SISTEMA_PRODUTOS_01 = new SistemaProdutos01();
 
     public static void main(String[] args) {
         int opcao;
@@ -28,13 +28,13 @@ public class ProdutoApp01 {
                     buscarProduto();
                     break;
                 case 5:
-                    sistemaProdutos.listarProdutos();
+                    SISTEMA_PRODUTOS_01.listarProdutos();
                     break;
                 case 6:
-                    sistemaProdutos.gerarRelatorioEstoque();
+                    SISTEMA_PRODUTOS_01.gerarRelatorioEstoque();
                     break;
                 case 7:
-                    System.out.println("Total em estoque:R$"+sistemaProdutos.calcularValorTotalEstoque());
+                    System.out.println("Total em estoque:R$"+ SISTEMA_PRODUTOS_01.calcularValorTotalEstoque());
                 case 8:
                     break;
                 default:
@@ -69,13 +69,13 @@ public class ProdutoApp01 {
     }
 
     private static void adicionarProduto(){
-        String nome = SistemaProdutos.validandoNome();
-        double preco = SistemaProdutos.validandoPreco();
-        int quantidade = SistemaProdutos.validandoQuantidade();
-        String descricao = SistemaProdutos.validandoDescricao();
+        String nome = SistemaProdutos01.validandoNome();
+        double preco = SistemaProdutos01.validandoPreco();
+        int quantidade = SistemaProdutos01.validandoQuantidade();
+        String descricao = SistemaProdutos01.validandoDescricao();
 
         DadosProduto01 produto01 = new DadosProduto01(nome,preco,quantidade,descricao);
-        if (sistemaProdutos.addProduto(produto01)){
+        if (SISTEMA_PRODUTOS_01.addProduto(produto01)){
             System.out.println("Produto adicionado.");
             return;
         }
@@ -83,11 +83,11 @@ public class ProdutoApp01 {
     }
 
     private static void atualizarProduto(){
-        String nome = SistemaProdutos.validandoNome();
-        double preoc = SistemaProdutos.validandoPreco();
-        int quantidade = SistemaProdutos.validandoQuantidade();
-        String descricao = SistemaProdutos.validandoDescricao();
-        if (sistemaProdutos.altualzarProduto(nome,preoc,quantidade,descricao)){
+        String nome = SistemaProdutos01.validandoNome();
+        double preoc = SistemaProdutos01.validandoPreco();
+        int quantidade = SistemaProdutos01.validandoQuantidade();
+        String descricao = SistemaProdutos01.validandoDescricao();
+        if (SISTEMA_PRODUTOS_01.altualzarProduto(nome,preoc,quantidade,descricao)){
             System.out.println("Produto atualizado.");
             return;
         }
@@ -95,8 +95,8 @@ public class ProdutoApp01 {
     }
 
     private static void removerProduto(){
-        String nome = SistemaProdutos.validandoNome();
-        if (sistemaProdutos.removerProduto(nome)){
+        String nome = SistemaProdutos01.validandoNome();
+        if (SISTEMA_PRODUTOS_01.removerProduto(nome)){
             System.out.println("Produto removido.");
             return;
         }
@@ -104,8 +104,8 @@ public class ProdutoApp01 {
     }
 
     private static void buscarProduto(){
-        String nome = SistemaProdutos.validandoNome();
-        DadosProduto01 produto01 = sistemaProdutos.buscarProduto(nome);
+        String nome = SistemaProdutos01.validandoNome();
+        DadosProduto01 produto01 = SISTEMA_PRODUTOS_01.buscarProduto(nome);
         if (produto01 != null){
             System.out.println(produto01);
             return;
