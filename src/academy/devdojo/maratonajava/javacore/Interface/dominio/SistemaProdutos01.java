@@ -33,8 +33,11 @@ public class SistemaProdutos01 {
                 return preco;
             }catch (PrecoDadosProduto e){
                 System.out.println(e.getMessage());
+            }catch (NumberFormatException e){
+                System.out.println("Erro. Digite um valor válido.");
             }
         }
+
     }
 
     public static int validandoQuantidade(){

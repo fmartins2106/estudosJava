@@ -61,10 +61,10 @@ public class ProdutoApp02 {
     }
 
     private static void atualizarProduto(){
-        String nome = SistemaProdutos01.validandoNome();
-        double preco = SistemaProdutos01.validandoPreco();
-        int quantidade = SistemaProdutos01.validandoQuantidade();
-        String descricao = SistemaProdutos01.validandoDescricao();
+        String nome = SistemaProdutos02.validandoNome();
+        double preco = SistemaProdutos02.validandoPreco();
+        int quantidade = SistemaProdutos02.validandoQuantidade();
+        String descricao = SistemaProdutos02.validandoDescricao();
         if (sistemaProduto02.atualizarProduto(nome,preco,quantidade,descricao)){
             System.out.println("Produto atualizado.");
             return;
@@ -110,9 +110,6 @@ public class ProdutoApp02 {
         System.out.println("[5] Listar produtos.");
         System.out.println("[6] Relatório de estoque.");
         System.out.println("[7] Valor total em estoque.");
-        System.out.println("[8] Relatório de estoque.");
-        System.out.println("[9] Sair");
+        System.out.println("[8] Sair.");
     }
-
-
 }
