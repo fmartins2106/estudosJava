@@ -1,0 +1,28 @@
+jun. 01, 2025 1:20:00 PM academy.devdojo.maratonajava.javacore.Interface.dominio.SistemaProdutos04 validandoPreco
+WARNING: Preço inválido informadoFor input string: "ssss"
+java.lang.NumberFormatException: For input string: "ssss"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.base/java.lang.Double.parseDouble(Double.java:944)
+	at academy.devdojo.maratonajava.javacore.Interface.dominio.SistemaProdutos04.validandoPreco(SistemaProdutos04.java:64)
+	at academy.devdojo.maratonajava.javacore.Interface.Test.ProdutoApp4.addProduto(ProdutoApp4.java:78)
+	at academy.devdojo.maratonajava.javacore.Interface.Test.ProdutoApp4.main(ProdutoApp4.java:19)
+
+jun. 01, 2025 1:20:05 PM academy.devdojo.maratonajava.javacore.Interface.dominio.SistemaProdutos04 validandoPreco
+WARNING: Preço inválido informadoFor input string: "sss"
+java.lang.NumberFormatException: For input string: "sss"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.base/java.lang.Double.parseDouble(Double.java:944)
+	at academy.devdojo.maratonajava.javacore.Interface.dominio.SistemaProdutos04.validandoPreco(SistemaProdutos04.java:64)
+	at academy.devdojo.maratonajava.javacore.Interface.Test.ProdutoApp4.addProduto(ProdutoApp4.java:78)
+	at academy.devdojo.maratonajava.javacore.Interface.Test.ProdutoApp4.main(ProdutoApp4.java:19)
+
+jun. 01, 2025 1:20:11 PM academy.devdojo.maratonajava.javacore.Interface.dominio.SistemaProdutos04 validandoPreco
+WARNING: Preço inválido informadoPreço não pode ser menor que R$0,00
+academy.devdojo.maratonajava.javacore.excessoes.PrecoDadosProduto: Preço não pode ser menor que R$0,00
+	at academy.devdojo.maratonajava.javacore.Interface.dominio.DadosProduto04.validacaoPreco(DadosProduto04.java:32)
+	at academy.devdojo.maratonajava.javacore.Interface.dominio.SistemaProdutos04.validandoPreco(SistemaProdutos04.java:65)
+	at academy.devdojo.maratonajava.javacore.Interface.Test.ProdutoApp4.addProduto(ProdutoApp4.java:78)
+	at academy.devdojo.maratonajava.javacore.Interface.Test.ProdutoApp4.main(ProdutoApp4.java:19)
+
