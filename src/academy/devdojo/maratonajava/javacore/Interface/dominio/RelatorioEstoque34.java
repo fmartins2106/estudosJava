@@ -45,4 +45,38 @@ public class RelatorioEstoque34 {
             e.printStackTrace();
         }
     }
+
+//    public void gerarRelatorio2(List<ProdutoBase34>  produtoBase34s){
+//        Path pastaArquivo = Paths.get("relatorio");
+//        try {
+//            if (Files.notExists(pastaArquivo)){
+//                Files.createDirectories(pastaArquivo);
+//            }
+//            Path caminhoArquivo = pastaArquivo.resolve("relatorio_Estoque.csv");
+//            StringBuilder conteudo = new StringBuilder();
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//            conteudo.append("\"nome\",\"preco\",\"quantidade\",\"estoque mínimo\",\"extra\"\n");
+//
+//            for (ProdutoBase34 produtoBase34 : produtoBase34s) {
+//                String extra = "";
+//                if (produtoBase34 instanceof ProdutoPerecivel34){
+//                    ProdutoPerecivel34 produtoPerecivel34 = (ProdutoPerecivel34) produtoBase34;
+//                    extra = String.format("Data de validade:"+produtoPerecivel34.getDataValidade().format(formatter));
+//                }
+//                if (produtoBase34 instanceof ProdutosNaoPereciveis34){
+//                    ProdutosNaoPereciveis34 produtosNaoPereciveis34 = (ProdutosNaoPereciveis34) produtoBase34;
+//                    extra = String.format("Meses garantia:"+produtosNaoPereciveis34.getMesesGarantia()
+//                            +" |Categoria:"+produtosNaoPereciveis34.getCategoria());
+//                }
+//                String linha = String.format("\"%s\",\"%.2f\",\"%d\",\"%d\",\"%s\"",produtoBase34.getNome(),
+//                        produtoBase34.getPreco(),produtoBase34.getQuantidade(),produtoBase34.getEstoqueMinimo(),extra));
+//                conteudo.append(linha).append("\n");
+//            }
+//            Files.writeString(caminhoArquivo,conteudo,StandardCharsets.UTF_8,StandardOpenOption.CREATE,
+//                    StandardOpenOption.TRUNCATE_EXISTING);
+//        }catch (IOException e){
+//            System.err.println("Erro ao gerar relatório:"+e.getMessage());
+//        }
+//    }
+
 }
