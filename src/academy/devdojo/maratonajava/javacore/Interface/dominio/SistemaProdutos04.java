@@ -16,60 +16,32 @@ import java.util.logging.SimpleFormatter;
 
 public class SistemaProdutos04 {
     private static final Scanner scanner = new Scanner(System.in);
+    private static final Logger logger = ProdutosLogger04.getLogger(SistemaProdutos04.class);
     private final Map<String,DadosProduto04> dadosProdutos = new LinkedHashMap<>();
-
-    private static final Logger logger =
-            Logger.getLogger(SistemaProdutos04.class.getName());
-
-    static {
-        configurarLogger();
-    }
-
-    private static void configurarLogger(){
-        try {
-            Path pastaLogs = Path.of("Logs");
-            if (Files.notExists(pastaLogs)){
-                Files.createDirectories(pastaLogs);
-            }
-            FileHandler fileHandler = new FileHandler("logs/logs_sistema_produtos.log",true);
-            fileHandler.setLevel(Level.ALL);
-            fileHandler.setFormatter(new SimpleFormatter());
-
-            logger.addHandler(fileHandler);
-            logger.setUseParentHandlers(false);
-        }catch (IOException e){
-            System.err.println("Erro ao configurar logger:"+e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
     public static String validandoNome(){
         while (true){
             try {
-                System.out.print("Nome:");
+                System.out.println("Nome:");
                 String nome = scanner.nextLine().trim();
                 DadosProduto04.validacaoNome(nome);
                 return nome;
             }catch (NomeDadosProduto e){
-                System.out.println(e.getMessage());
-                logger.log(Level.WARNING,"Nome inválido informado:"+e.getMessage(),e);
+                logger.log(Level.WARNING,"Nome inválido informado:"+e.getMessage());
             }
         }
     }
 
-    public static double validandoPreco(){
+    public static double validacaoPreco(){
         while (true){
             try {
-                System.out.print("Preço:R$");
+                System.out.println("Preço:R$");
                 double preco = Double.parseDouble(scanner.nextLine().trim());
                 DadosProduto04.validacaoPreco(preco);
                 return preco;
-            }catch (NumberFormatException e){
-                System.out.println("Erro. Preço inválida. Tente novamente.");
-                logger.log(Level.WARNING,"Preço inválido informado"+e.getMessage(),e);
             }catch (PrecoDadosProduto e){
                 System.out.println(e.getMessage());
-                logger.log(Level.WARNING,"Preço inválido informado"+e.getMessage(),e);
+                logger.log(Level.WARNING,"Preço inválido informado"+e.getMessage());
             }
         }
     }
@@ -77,16 +49,13 @@ public class SistemaProdutos04 {
     public static int validandoQuantidade(){
         while (true){
             try {
-                System.out.print("Quantidade:");
+                System.out.println("Quantidade:");
                 int quantidade = Integer.parseInt(scanner.nextLine().trim());
                 DadosProduto04.validacaoQuantidade(quantidade);
                 return quantidade;
-            }catch (NumberFormatException e){
-                System.out.println("Erro. Digite um valor válido para definir quantidade.");
-                logger.log(Level.WARNING, "Quantidade informada inválida:"+e.getMessage(),e);
-            }catch (QuantidadeDadosProduto e) {
+            }catch (QuantidadeDadosProduto e){
                 System.out.println(e.getMessage());
-                logger.log(Level.WARNING, "Quantidade informada inválida:" + e.getMessage(), e);
+                logger.log(Level.WARNING,"Quantidade inválida informada"+e.getMessage());
             }
         }
     }
@@ -100,12 +69,12 @@ public class SistemaProdutos04 {
                 return descricao;
             }catch (DescricaoProdutoDadosProduto e){
                 System.out.println(e.getMessage());
-                logger.log(Level.WARNING, "Descrição informada inválida:"+ e.getMessage(),e);
+                logger.log(Level.WARNING,"Descrição informada inválida"+e.getMessage());
             }
         }
     }
 
-    public boolean addProdutoSistema(DadosProduto04 dadosProduto04){
+     public boolean addProdutoSistema(DadosProduto04 dadosProduto04){
         return dadosProdutos.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
     }
 

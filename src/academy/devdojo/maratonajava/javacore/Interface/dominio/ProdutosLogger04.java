@@ -30,18 +30,22 @@ public class ProdutosLogger04 {
         try {
             Files.createDirectories(Paths.get(LOG_DIR));
             String dataAtual = DATE_FORMAT.format(new Date());
-            String nomeArquivo = String.format("/%s/log_%s_%s.log",LOG_DIR,className,dataAtual);
+            String logFileName = String.format("log_%s_%s.log",className,dataAtual);
+            Path logFilePath = Paths.get(LOG_DIR, logFileName);
 
+            for (Handler handler : logger.getHandlers()) {
+                logger.addHandler(handler);
+            }
 
-            FileHandler fileHandler = new FileHandler(nomeArquivo,true);
-            fileHandler.setLevel(Level.ALL);
+            FileHandler fileHandler = new FileHandler(logFilePath.toString(),true);
             fileHandler.setFormatter(new SimpleFormatter());
+            fileHandler.setLevel(Level.ALL);
 
             logger.addHandler(fileHandler);
             logger.setLevel(Level.ALL);
 
         }catch (IOException e){
-            System.out.println("Erro ao configurar o logger:"+className+" :"+e.getMessage());
+            System.err.println("Erro na configuração do logger "+className+" :"+e.getMessage());
         }
     }
 
