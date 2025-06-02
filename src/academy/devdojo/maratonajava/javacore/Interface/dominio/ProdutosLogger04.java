@@ -41,7 +41,7 @@ public class ProdutosLogger04 {
             logger.setLevel(Level.ALL);
 
         }catch (IOException e){
-            System.out.println("Erro na elaboração do logger:"+className+" :"+e.getMessage());
+            System.out.println("Erro ao configurar o logger:"+className+" :"+e.getMessage());
         }
     }
 
