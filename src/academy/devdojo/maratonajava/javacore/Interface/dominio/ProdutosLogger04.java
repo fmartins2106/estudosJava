@@ -1,7 +1,9 @@
 package academy.devdojo.maratonajava.javacore.Interface.dominio;
 
 import java.awt.desktop.OpenFilesHandler;
+import java.io.DataInput;
 import java.io.EOFException;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,11 +34,9 @@ public class ProdutosLogger04 {
             String dataAtual = DATE_FORMAT.format(new Date());
             String logFileName = String.format("log_%s_%s.log",className,dataAtual);
             Path logFilePath = Paths.get(LOG_DIR, logFileName);
-
             for (Handler handler : logger.getHandlers()) {
-                logger.addHandler(handler);
+                logger.removeHandler(handler);
             }
-
             FileHandler fileHandler = new FileHandler(logFilePath.toString(),true);
             fileHandler.setFormatter(new SimpleFormatter());
             fileHandler.setLevel(Level.ALL);
@@ -48,5 +48,39 @@ public class ProdutosLogger04 {
             System.err.println("Erro na configuração do logger "+className+" :"+e.getMessage());
         }
     }
+
+//    private static final String DIR_LOGS = "logs";
+//    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+//
+//    public static Logger getLogger(Class<?> clazz){
+//        Logger logger = Logger.getLogger(clazz.getName());
+//        logger.setUseParentHandlers(false);
+//        if (logger.getHandlers().length == 0){
+//            configurarLogger2(logger,clazz.getSimpleName());
+//        }
+//        return false;
+//    }
+//
+//    public static void configurarLogger2(Logger logger, String className){
+//        try {
+//            Files.createDirectories(Paths.get(DIR_LOGS));
+//            String dataAtual = SIMPLE_DATE_FORMAT.format(new Date());
+//            String logFileName = String.format("log_%s_%s.log",className,dataAtual);
+//            Path logFilePath = Paths.get(LOG_DIR,logFileName);
+//
+//            for (Handler handler : logger.getHandlers()) {
+//                logger.addHandler(handler);
+//            }
+//
+//            FileHandler fileHandler = new FileHandler(logFilePath.toString(),true);
+//            fileHandler.setFormatter(new SimpleFormatter());
+//            fileHandler.setLevel(Level.ALL);
+//
+//            logger.addHandler(fileHandler);
+//            logger.setLevel(Level.ALL);
+//        }catch (IOException e){
+//            System.err.println("Erro na configuração do logger da "+className+" :"+e.getMessage());
+//        }
+//    }
 
 }
