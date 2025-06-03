@@ -22,7 +22,7 @@ public class DadosProduto04 implements NovosProdutos04 {
     }
 
     public static void validacaoNome(String nome){
-        if (nome == null || nome.isEmpty() || !nome.matches("^[\\p{L}0-9]+( [\\p{L}0-9]+)*$")){
+        if (nome == null || nome.isEmpty() || !nome.matches("^[\\p{L}]+( [\\p{L}]+)*$")){
             throw new NomeDadosProduto();
         }
     }

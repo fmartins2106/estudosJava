@@ -16,7 +16,7 @@ import java.util.logging.*;
 public class ProdutosLogger04 {
 
     private static final String LOG_DIR = "logs";
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
 
     public static Logger getLogger(Class<?> clazz){
         Logger logger = Logger.getLogger(clazz.getName());
@@ -49,21 +49,22 @@ public class ProdutosLogger04 {
         }
     }
 
-//    private static final String DIR_LOGS = "logs";
+//    private static final String LOG_DIRT = "logs";
 //    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 //
-//    public static Logger getLogger(Class<?> clazz){
+//    private static Logger getLogger2(Class<?> clazz){
 //        Logger logger = Logger.getLogger(clazz.getName());
 //        logger.setUseParentHandlers(false);
+//
 //        if (logger.getHandlers().length == 0){
 //            configurarLogger2(logger,clazz.getSimpleName());
 //        }
-//        return false;
+//        return logger;
 //    }
 //
-//    public static void configurarLogger2(Logger logger, String className){
+//    private static void configurarLogger2(Logger logger, String className){
 //        try {
-//            Files.createDirectories(Paths.get(DIR_LOGS));
+//            Files.createDirectories(Paths.get(LOG_DIRT));
 //            String dataAtual = SIMPLE_DATE_FORMAT.format(new Date());
 //            String logFileName = String.format("log_%s_%s.log",className,dataAtual);
 //            Path logFilePath = Paths.get(LOG_DIR,logFileName);
@@ -79,7 +80,7 @@ public class ProdutosLogger04 {
 //            logger.addHandler(fileHandler);
 //            logger.setLevel(Level.ALL);
 //        }catch (IOException e){
-//            System.err.println("Erro na configuração do logger da "+className+" :"+e.getMessage());
+//            System.out.println("Erro na configuração do looger da "+className+" :"+e.getMessage());
 //        }
 //    }
 

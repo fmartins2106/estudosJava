@@ -19,6 +19,7 @@ public class SistemaProdutos04 {
     private static final Logger logger = ProdutosLogger04.getLogger(SistemaProdutos04.class);
     private final Map<String,DadosProduto04> dadosProdutos = new LinkedHashMap<>();
 
+
     public static String validandoNome(){
         while (true){
             try {
@@ -27,12 +28,13 @@ public class SistemaProdutos04 {
                 DadosProduto04.validacaoNome(nome);
                 return nome;
             }catch (NomeDadosProduto e){
+                System.out.println(e.getMessage());
                 logger.log(Level.WARNING,"Nome inválido informado:"+e.getMessage());
             }
         }
     }
 
-    public static double validacaoPreco(){
+    public static double validandoPreco(){
         while (true){
             try {
                 System.out.println("Preço:R$");
@@ -74,13 +76,13 @@ public class SistemaProdutos04 {
         }
     }
 
-     public boolean addProdutoSistema(DadosProduto04 dadosProduto04){
+    public boolean addProdutoSistema2(DadosProduto04 dadosProduto04){
         return dadosProdutos.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
     }
 
-    public boolean atualizarProduto(String nome, double novPreco, int novaQuantidade, String novaDescricao){
-        return dadosProdutos.computeIfPresent(nome,(k,v) ->{
-            v.setPreco(novPreco);
+    public boolean atualizarProduto(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
+        return dadosProdutos.computeIfPresent(nome,(k,v) -> {
+            v.setPreco(novoPreco);
             v.setQuantidade(novaQuantidade);
             v.setDescricao(novaDescricao);
             return v;
