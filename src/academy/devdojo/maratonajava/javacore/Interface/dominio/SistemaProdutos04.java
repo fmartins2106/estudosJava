@@ -111,12 +111,12 @@ public class SistemaProdutos04 {
     public boolean retirarProduto(String nome){
         return dadosProdutos.remove(nome) == null;
     }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
-
-    public void gerarRelatorioEstoque(){
+    public void gerarRelatorio(){
         dadosProdutos.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
                 .forEach(e -> System.out.println(e.getKey()
-                +" Quantidade:"+e.getValue().getQuantidade()));
+                +" Quantidada:"+e.getValue().getQuantidade()));
     }
 
     public double calcularValorTotalEstoque(){
