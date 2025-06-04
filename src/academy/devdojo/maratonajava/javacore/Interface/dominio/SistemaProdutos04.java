@@ -5,6 +5,7 @@ import academy.devdojo.maratonajava.javacore.excessoes.NomeDadosProduto;
 import academy.devdojo.maratonajava.javacore.excessoes.PrecoDadosProduto;
 import academy.devdojo.maratonajava.javacore.excessoes.QuantidadeDadosProduto;
 
+import javax.swing.plaf.PanelUI;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -44,6 +45,9 @@ public class SistemaProdutos04 {
             }catch (PrecoDadosProduto e){
                 System.out.println(e.getMessage());
                 logger.log(Level.WARNING,"Preço inválido informado"+e.getMessage());
+            }catch (NumberFormatException e){
+                System.out.println("Erro. Digite um valor válido.");
+                logger.log(Level.WARNING," Preço inválido."+e.getMessage());
             }
         }
     }
@@ -58,6 +62,9 @@ public class SistemaProdutos04 {
             }catch (QuantidadeDadosProduto e){
                 System.out.println(e.getMessage());
                 logger.log(Level.WARNING,"Quantidade inválida informada"+e.getMessage());
+            }catch (NumberFormatException e){
+                System.out.println("Erro. Quantidade inválida informada.");
+                logger.log(Level.WARNING, "Quantidade inválida informada"+e.getMessage());
             }
         }
     }
@@ -89,10 +96,6 @@ public class SistemaProdutos04 {
         }) != null;
     }
 
-    public boolean removerProduto(String nome){
-        return dadosProdutos.remove(nome) == null;
-    }
-
     public void listarProdutos(){
         if (dadosProdutos.isEmpty()){
             System.out.println("Nenhum produto foi cadastrado.");
@@ -105,11 +108,15 @@ public class SistemaProdutos04 {
         return dadosProdutos.get(nome);
     }
 
+    public boolean retirarProduto(String nome){
+        return dadosProdutos.remove(nome) == null;
+    }
+
+
     public void gerarRelatorioEstoque(){
-        dadosProdutos.entrySet().stream().sorted(Comparator.comparing
-                        (e -> e.getValue().getQuantidade()))
+        dadosProdutos.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
                 .forEach(e -> System.out.println(e.getKey()
-                        +" Quantidade:"+e.getValue().getQuantidade()));
+                +" Quantidade:"+e.getValue().getQuantidade()));
     }
 
     public double calcularValorTotalEstoque(){

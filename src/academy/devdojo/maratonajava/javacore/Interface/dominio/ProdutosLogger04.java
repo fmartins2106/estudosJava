@@ -48,40 +48,4 @@ public class ProdutosLogger04 {
             System.err.println("Erro na configuração do logger "+className+" :"+e.getMessage());
         }
     }
-
-//    private static final String LOG_DIRT = "logs";
-//    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
-//
-//    private static Logger getLogger2(Class<?> clazz){
-//        Logger logger = Logger.getLogger(clazz.getName());
-//        logger.setUseParentHandlers(false);
-//
-//        if (logger.getHandlers().length == 0){
-//            configurarLogger2(logger,clazz.getSimpleName());
-//        }
-//        return logger;
-//    }
-//
-//    private static void configurarLogger2(Logger logger, String className){
-//        try {
-//            Files.createDirectories(Paths.get(LOG_DIRT));
-//            String dataAtual = SIMPLE_DATE_FORMAT.format(new Date());
-//            String logFileName = String.format("log_%s_%s.log",className,dataAtual);
-//            Path logFilePath = Paths.get(LOG_DIR,logFileName);
-//
-//            for (Handler handler : logger.getHandlers()) {
-//                logger.addHandler(handler);
-//            }
-//
-//            FileHandler fileHandler = new FileHandler(logFilePath.toString(),true);
-//            fileHandler.setFormatter(new SimpleFormatter());
-//            fileHandler.setLevel(Level.ALL);
-//
-//            logger.addHandler(fileHandler);
-//            logger.setLevel(Level.ALL);
-//        }catch (IOException e){
-//            System.out.println("Erro na configuração do looger da "+className+" :"+e.getMessage());
-//        }
-//    }
-
 }
