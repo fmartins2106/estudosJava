@@ -51,11 +51,4 @@ public class CarrinhoDeCompras45 {
         return total;
     }
 
-    public boolean estaVazio(){
-        return carrinhoDeCompras.isEmpty();
-    }
-
-    public Map<Produto45, Integer> getCarrinhoDeCompras() {
-        return carrinhoDeCompras;
-    }
 }

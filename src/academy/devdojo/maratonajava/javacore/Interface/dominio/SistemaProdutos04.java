@@ -82,11 +82,11 @@ public class SistemaProdutos04 {
         }
     }
 
-    public boolean addProdutoSistema2(DadosProduto04 dadosProduto04){
+    public boolean addProdutoSistema(DadosProduto04 dadosProduto04){
         return dadosProdutos.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
     }
 
-    public boolean atualizarProduto(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
+    public boolean atualizarProduto( String nome, double novoPreco, int novaQuantidade, String novaDescricao){
         return dadosProdutos.computeIfPresent(nome,(k,v) -> {
             v.setPreco(novoPreco);
             v.setQuantidade(novaQuantidade);
@@ -107,12 +107,12 @@ public class SistemaProdutos04 {
         return dadosProdutos.get(nome);
     }
 
-    public boolean retirarProduto(String nome){
+    public boolean removerProduto(String nome){
         return dadosProdutos.remove(nome) == null;
     }
 
 
-    public void gerarRelatorio(){
+    public void gerarRelatorioEstoque(){
         dadosProdutos.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
                 .forEach(e -> System.out.println(e.getKey()
                 +" Quantidada:"+e.getValue().getQuantidade()));
@@ -123,5 +123,5 @@ public class SistemaProdutos04 {
         return dadosProdutos.values().stream()
                 .mapToDouble(p -> p.getPreco() * p.getQuantidade()).sum();
     }
-    
+
 }
