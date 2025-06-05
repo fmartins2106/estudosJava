@@ -49,4 +49,27 @@ public class ProdutosLogger04 {
         }
     }
 
+//    protected static void configurarLogger03(Logger logger, String className){
+//        try {
+//            Files.createDirectories(Paths.get(LOGS_DIRETORIO));
+//            String dataAtual = SIMPLE_DATE_FORMAT.format(new Date());
+//            String logFileName = String.format("log_%s_%s.log",LOGS_DIRETORIO,dataAtual);
+//            Path logFilePath = Paths.get(LOGS_DIRETORIO,logFileName);
+//
+//            for (Handler handler : logger.getHandlers()) {
+//                logger.addHandler(handler);
+//            }
+//
+//            FileHandler fileHandler = new FileHandler(logFilePath.toString(),true);
+//            fileHandler.setFormatter(new SimpleFormatter());
+//            fileHandler.setLevel(Level.ALL);
+//
+//            logger.addHandler(fileHandler);
+//            logger.setLevel(Level.ALL);
+//
+//        }catch (IOException e){
+//            System.out.println("Erro na configuração do logger "+className+" :"+e.getMessage());
+//        }
+//    }
+
 }
