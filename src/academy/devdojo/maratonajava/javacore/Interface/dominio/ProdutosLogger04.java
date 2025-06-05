@@ -49,42 +49,4 @@ public class ProdutosLogger04 {
         }
     }
 
-//    private static final String LOG_DIRTIO = "logs";
-//    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
-//
-//    private static Logger getLogger2(Class<?> clazz){
-//        Logger logger = Logger.getLogger(clazz.getName());
-//        logger.setUseParentHandlers(false);
-//
-//        if (logger.getHandlers().length == 0){
-//            configurarLogger02(logger,clazz.getSimpleName());
-//        }
-//        return logger;
-//    }
-//
-//    private static void configurarLogger02(Logger logger, String className){
-//        try {
-//            Files.createDirectories(Paths.get(LOG_DIRTIO));
-//            String dataAtual = DATE_FORMAT.format("dd-MM-yyyy");
-//            String logFileName = String.format("log_%s_%s.log",className,dataAtual);
-//            Path logFilePath = Paths.get(LOG_DIRTIO,logFileName);
-//
-//            for (Handler handler : logger.getHandlers()) {
-//                logger.addHandler(handler);
-//            }
-//
-//            FileHandler fileHandler = new FileHandler(logFilePath.toString(),true);
-//            fileHandler.setFormatter(new SimpleFormatter());
-//            fileHandler.setLevel(Level.ALL);
-//
-//            logger.addHandler(fileHandler);
-//            logger.setLevel(Level.ALL);
-//        }catch (IOException e){
-//            System.err.println("Erro ao configurar o log"+className+" :"+e.getMessage());
-//        }
-//    }
-
-
-
-
 }

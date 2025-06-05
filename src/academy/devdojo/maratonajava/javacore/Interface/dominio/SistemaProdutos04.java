@@ -20,7 +20,6 @@ public class SistemaProdutos04 {
     private static final Logger logger = ProdutosLogger04.getLogger(SistemaProdutos04.class);
     private final Map<String,DadosProduto04> dadosProdutos = new LinkedHashMap<>();
 
-
     public static String validandoNome(){
         while (true){
             try {
@@ -111,13 +110,14 @@ public class SistemaProdutos04 {
     public boolean retirarProduto(String nome){
         return dadosProdutos.remove(nome) == null;
     }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
 
     public void gerarRelatorio(){
         dadosProdutos.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
                 .forEach(e -> System.out.println(e.getKey()
                 +" Quantidada:"+e.getValue().getQuantidade()));
     }
+    
 
     public double calcularValorTotalEstoque(){
         return dadosProdutos.values().stream()
