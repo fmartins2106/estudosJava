@@ -123,4 +123,9 @@ public class SistemaProdutos04 {
                 .mapToDouble(p -> p.getPreco() * p.getQuantidade()).sum();
     }
 
+
+
+
+
+
 }
