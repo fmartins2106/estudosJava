@@ -118,7 +118,6 @@ public class SistemaProdutos04 {
                 +" Quantidada:"+e.getValue().getQuantidade()));
     }
     
-
     public double calcularValorTotalEstoque(){
         return dadosProdutos.values().stream()
                 .mapToDouble(p -> p.getPreco() * p.getQuantidade()).sum();

@@ -16,7 +16,6 @@ public class CarrinhoDeCompras45 {
         }
     }
 
-
     public void retirarProdutoCarrinho(int index){
         List<Produto45> produtos = new ArrayList<>(carrinhoDeCompras.keySet());
         Produto45 produtoSelecionado = produtos.get(index);
@@ -50,5 +49,7 @@ public class CarrinhoDeCompras45 {
         }
         return total;
     }
+
+
 
 }
