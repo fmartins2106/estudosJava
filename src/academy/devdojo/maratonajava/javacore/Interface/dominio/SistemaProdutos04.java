@@ -122,5 +122,6 @@ public class SistemaProdutos04 {
         return dadosProdutos.values().stream()
                 .mapToDouble(p -> p.getPreco() * p.getQuantidade()).sum();
     }
+
     
 }
