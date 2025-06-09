@@ -6,6 +6,9 @@ import academy.devdojo.maratonajava.javacore.excessoes.PrecoDadosProduto;
 import academy.devdojo.maratonajava.javacore.excessoes.QuantidadeDadosProduto;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class DadosProduto04 implements NovosProdutos04 {
@@ -94,4 +97,7 @@ public class DadosProduto04 implements NovosProdutos04 {
     public String toString() {
         return String.format("Produto:"+this.nome+" |Preço:R$"+this.preco+" |Quantidade:"+this.quantidade+" |Descrição:"+this.descricao);
     }
+
+
+
 }

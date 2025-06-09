@@ -81,6 +81,42 @@ public class SistemaProdutos04 {
             }
         }
     }
+    private boolean alterarProduto(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
+        return dadosProdutos.computeIfPresent(nome, (k,v) ->{
+            v.setPreco(novoPreco);
+            v.setQuantidade(novaQuantidade);
+            v.setDescricao(novaDescricao);
+            return v;
+        }) != null;
+    }
 
+    private boolean retirarProdutoSistema(String nome){
+        return dadosProdutos.remove(nome) == null;
+    }
+
+    private DadosProduto04 buscarPorNome(String nome){
+        return dadosProdutos.get(nome);
+    }
+
+    private void listarProdutosSistema(){
+        if (dadosProdutos.isEmpty()){
+            System.out.println("Nenhum produto cadastrado.");
+            return;
+        }
+        dadosProdutos.forEach((nome, dadosProduto04) -> System.out.println("Nome:"+nome+" =>"+dadosProduto04));
+    }
+
+    private void gerarRelatorioEstoque(){
+        dadosProdutos.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
+                .forEach(e -> System.out.println("Produto:"+e.getKey()
+                +" |Quantidade:"+e.getValue().getQuantidade()));
+    }
+
+    private double calculdandoValorTotalEstoque(){
+        return dadosProdutos.values().stream()
+                .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
+    }
+
+    
 
 }
