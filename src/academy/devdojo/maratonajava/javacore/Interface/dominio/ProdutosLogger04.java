@@ -49,63 +49,61 @@ public class ProdutosLogger04 {
     }
 
 
-    private static final String LOGS_DIRETORIO = "logs";
-    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
-
-    public static Logger getLogger2(Class<?> clazz) {
-        /* Método estático que retorna um logger personalizado para a classe informada */
-        // Obtém uma instância de Logger com o nome da classe fornecida
-        Logger logger = Logger.getLogger(clazz.getName());
-
-        // Desativa os manipuladores de log herdados do logger pai (evita logs duplicados no console)
-        logger.setUseParentHandlers(false);
-
-        // Se o logger ainda não tem manipuladores configurados
-        if (logger.getHandlers().length == 0) {
-            // Configura o logger com um manipulador de arquivo
-            configurarLogger2(logger, clazz.getSimpleName());
-        }
-
-        // Retorna o logger configurado
-        return logger;
-    }
-
-    // Método que configura o logger para gravar em um arquivo com base no nome da classe e data atual
-    public static void configurarLogger2(Logger logger, String className) {
-        try {
-            // Garante que o diretório de logs exista (cria se não existir)
-            Files.createDirectories(Paths.get(LOGS_DIRETORIO));
-
-            // Gera uma string com a data atual formatada (ex: 2025-06-08)
-            String dataAtual = SIMPLE_DATE_FORMAT.format(new Date());
-
-            // Define o nome do arquivo de log com base na classe e na data
-            String logFileName = String.format("log_%s_%s.logs", className, dataAtual);
-
-            // Cria o caminho completo para o arquivo de log
-            Path logFilePath = Paths.get(LOGS_DIRETORIO, logFileName);
-
-            // Cria um manipulador de log que grava no arquivo (modo de adição: true)
-            FileHandler fileHandler = new FileHandler(logFilePath.toString(), true);
-
-            // Define o formato do log para o padrão simples do Java
-            fileHandler.setFormatter(new SimpleFormatter());
-
-            // Define o nível do log para capturar todos os níveis (INFO, DEBUG, WARNING etc.)
-            fileHandler.setLevel(Level.ALL);
-
-            // Adiciona esse manipulador ao logger
-            logger.addHandler(fileHandler);
-
-            // Define o nível geral do logger para ALL (captura tudo)
-            logger.setLevel(Level.ALL);
-
-        } catch (IOException e) {
-            // Em caso de erro ao configurar o diretório ou o arquivo de log, exibe mensagem no console
-            System.out.println("Erro na configuração do diretório " + className + " :" + e.getMessage());
-        }
-    }
-
-
+//    private static final String LOGS_DIRETORIO = "logs";
+//    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+//
+//    public static Logger getLogger2(Class<?> clazz) {
+//        /* Método estático que retorna um logger personalizado para a classe informada */
+//        // Obtém uma instância de Logger com o nome da classe fornecida
+//        Logger logger = Logger.getLogger(clazz.getName());
+//
+//        // Desativa os manipuladores de log herdados do logger pai (evita logs duplicados no console)
+//        logger.setUseParentHandlers(false);
+//
+//        // Se o logger ainda não tem manipuladores configurados
+//        if (logger.getHandlers().length == 0) {
+//            // Configura o logger com um manipulador de arquivo
+//            configurarLogger2(logger, clazz.getSimpleName());
+//        }
+//
+//        // Retorna o logger configurado
+//        return logger;
+//    }
+//
+//    // Método que configura o logger para gravar em um arquivo com base no nome da classe e data atual
+//    public static void configurarLogger2(Logger logger, String className) {
+//        try {
+//            // Garante que o diretório de logs exista (cria se não existir)
+//            Files.createDirectories(Paths.get(LOGS_DIRETORIO));
+//
+//            // Gera uma string com a data atual formatada (ex: 2025-06-08)
+//            String dataAtual = SIMPLE_DATE_FORMAT.format(new Date());
+//
+//            // Define o nome do arquivo de log com base na classe e na data
+//            String logFileName = String.format("log_%s_%s.logs", className, dataAtual);
+//
+//            // Cria o caminho completo para o arquivo de log
+//            Path logFilePath = Paths.get(LOGS_DIRETORIO, logFileName);
+//
+//            // Cria um manipulador de log que grava no arquivo (modo de adição: true)
+//            FileHandler fileHandler = new FileHandler(logFilePath.toString(), true);
+//
+//            // Define o formato do log para o padrão simples do Java
+//            fileHandler.setFormatter(new SimpleFormatter());
+//
+//            // Define o nível do log para capturar todos os níveis (INFO, DEBUG, WARNING etc.)
+//            fileHandler.setLevel(Level.ALL);
+//
+//            // Adiciona esse manipulador ao logger
+//            logger.addHandler(fileHandler);
+//
+//            // Define o nível geral do logger para ALL (captura tudo)
+//            logger.setLevel(Level.ALL);
+//
+//        } catch (IOException e) {
+//            // Em caso de erro ao configurar o diretório ou o arquivo de log, exibe mensagem no console
+//            System.out.println("Erro na configuração do diretório " + className + " :" + e.getMessage());
+//        }
+//    }
 
 }
