@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.javacore.navigableMap;
+package academy.devdojo.maratonajava.javacore.navigableMap.dominio;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,15 +1,14 @@
-package academy.devdojo.maratonajava.javacore.navigableMap;
+package academy.devdojo.maratonajava.javacore.navigableMap.dominio;
 
 import academy.devdojo.maratonajava.javacore.navigableMap.excessoes.DataHoraCadastroConsulta;
 import academy.devdojo.maratonajava.javacore.navigableMap.excessoes.EspecialidadeCadastroConsulta;
 import academy.devdojo.maratonajava.javacore.navigableMap.excessoes.MedicoCadastroConsulta;
 import academy.devdojo.maratonajava.javacore.navigableMap.excessoes.PacienteCadastroConsulta;
 
-import java.time.DateTimeException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Map;
 import java.util.NavigableMap;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -19,7 +18,7 @@ import java.util.logging.Logger;
 public class AgendaConsulta01 {
     private static final Scanner scanner = new Scanner(System.in);
     private static final Logger logger = ConsultaLogger01.getLogger(AgendaConsulta01.class);
-    private final NavigableMap<LocalDateTime,Consultavel01> consultas = new TreeMap<>();
+    private NavigableMap<LocalDateTime,Consultavel01> registroConsultas = new TreeMap<>();
 
     public static String validandoPaciente(){
         while (true){
@@ -82,5 +81,39 @@ public class AgendaConsulta01 {
         }
     }
 
+    public void agendar(Consultavel01 consultavel01){
+        registroConsultas.put(consultavel01.getDataHora(),consultavel01);
+        System.out.println("Consulta agendada com sucesso.");
+    }
 
+    public void cancelar(LocalDateTime horario){
+        registroConsultas.remove(horario);
+        System.out.println("Consulta removida com sucesso.");
+    }
+
+    public boolean jaExiste(LocalDateTime dateTime){
+        return registroConsultas.containsKey(dateTime);
+    }
+
+    public Map.Entry<LocalDateTime,Consultavel01> proximasConsulta(){
+        return registroConsultas.higherEntry(LocalDateTime.now());
+    }
+
+    public void listarTodas(){
+        registroConsultas.forEach((k,v) -> System.out.println(v));
+    }
+
+    public void consultarAntes(LocalDateTime horario){
+        registroConsultas.headMap(horario).forEach((k,v) ->
+                System.out.println(v));
+    }
+
+    public void consultarDepois(LocalDateTime horario){
+        registroConsultas.tailMap(horario,false).forEach((k,v) ->
+                System.out.println(v));
+    }
+
+    public NavigableMap<LocalDateTime, Consultavel01> getRegistroConsultas() {
+        return registroConsultas;
+    }
 }

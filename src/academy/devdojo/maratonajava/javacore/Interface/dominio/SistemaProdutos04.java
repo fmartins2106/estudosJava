@@ -90,15 +90,15 @@ public class SistemaProdutos04 {
         }) != null;
     }
 
-    private boolean retirarProdutoSistema(String nome){
+    private boolean removerProduto(String nome){
         return dadosProdutos.remove(nome) == null;
     }
 
-    private DadosProduto04 buscarPorNome(String nome){
+    private DadosProduto04 buscarProduto(String nome){
         return dadosProdutos.get(nome);
     }
 
-    private void listarProdutosSistema(){
+    private void listarProdutos(){
         if (dadosProdutos.isEmpty()){
             System.out.println("Nenhum produto cadastrado.");
             return;
@@ -112,7 +112,7 @@ public class SistemaProdutos04 {
                 +" |Quantidade:"+e.getValue().getQuantidade()));
     }
 
-    private double calculdandoValorTotalEstoque(){
+    private double calcularValorTotalEstoque(){
         return dadosProdutos.values().stream()
                 .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
     }

@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.javacore.navigableMap;
+package academy.devdojo.maratonajava.javacore.navigableMap.dominio;
 
 import academy.devdojo.maratonajava.javacore.navigableMap.excessoes.DataHoraCadastroConsulta;
 import academy.devdojo.maratonajava.javacore.navigableMap.excessoes.EspecialidadeCadastroConsulta;
@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class CadastroConsulta01 implements Consultavel01{
     private String paciente;
