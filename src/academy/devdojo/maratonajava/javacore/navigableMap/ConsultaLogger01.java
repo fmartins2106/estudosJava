@@ -1,0 +1,48 @@
+package academy.devdojo.maratonajava.javacore.navigableMap;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
+public class ConsultaLogger01 {
+
+    private static final String LOG_DIR = "logs";
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+
+    public static Logger getLogger(Class<?> clazz){
+        Logger logger = Logger.getLogger(clazz.getName());
+        logger.setUseParentHandlers(false);
+
+        if (logger.getHandlers().length == 0){
+            configuracaoLogger(logger,clazz.getSimpleName());
+        }
+        return logger;
+    }
+
+    public static void configuracaoLogger(Logger logger, String className){
+        try {
+            Files.createDirectories(Paths.get(LOG_DIR));
+            String dataAtual = SIMPLE_DATE_FORMAT.format(new Date());
+            String logFileName = String.format("log_%s_%s.logs",className,dataAtual);
+            Path logFilePath = Paths.get(LOG_DIR,logFileName);
+
+            FileHandler fileHandler = new FileHandler(logFilePath.toString(),true);
+            fileHandler.setFormatter(new SimpleFormatter());
+            fileHandler.setLevel(Level.ALL);
+
+            logger.addHandler(fileHandler);
+            logger.setLevel(Level.ALL);
+        }catch (IOException e){
+            System.out.println("Erro na configuração do logger "+className+" :"+e.getMessage());
+        }
+    }
+
+
+}
