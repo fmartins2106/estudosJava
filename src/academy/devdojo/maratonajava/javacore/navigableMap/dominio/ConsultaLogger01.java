@@ -43,6 +43,6 @@ public class ConsultaLogger01 {
             System.out.println("Erro na configuração do logger "+className+" :"+e.getMessage());
         }
     }
-    
+
 
 }

@@ -4,6 +4,7 @@ import academy.devdojo.maratonajava.javacore.excessoes.DescricaoProdutoDadosProd
 import academy.devdojo.maratonajava.javacore.excessoes.NomeDadosProduto;
 import academy.devdojo.maratonajava.javacore.excessoes.PrecoDadosProduto;
 import academy.devdojo.maratonajava.javacore.excessoes.QuantidadeDadosProduto;
+import academy.devdojo.maratonajava.javacore.navigableMap.dominio.ConsultaLogger01;
 
 import javax.swing.plaf.PanelUI;
 import java.io.IOException;
@@ -118,6 +119,41 @@ public class SistemaProdutos04 {
 
     public double calcularValorTotalEstoque(){
         return dadosProdutos.values().stream()
+                .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
+    }
+
+    private static final Logger logger2 = ConsultaLogger01.getLogger(SistemaProdutos04.class);
+    private final Map<String,DadosProduto04> produto45IntegerMap = new LinkedHashMap<>();
+
+    private boolean addProduto(DadosProduto04 dadosProduto04){
+        return produto45IntegerMap.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
+    }
+
+    private boolean retirarProduto(String nome){
+        return produto45IntegerMap.remove(nome) == null;
+    }
+
+    private boolean alterarDados(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
+        return produto45IntegerMap.computeIfPresent(nome, (k,v) ->{
+            v.setPreco(novoPreco);
+            v.setQuantidade(novaQuantidade);
+            v.setDescricao(novaDescricao);
+            return v;
+        }) !=null;
+    }
+
+    private DadosProduto04 buscarProNome2(String nome){
+        return produto45IntegerMap.get(nome);
+    }
+
+    private void getQuantidadeTotalEstoque(){
+        produto45IntegerMap.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
+                .forEach(e -> System.out.println("Produto:"+e.getKey()
+                +" |Quantidade:"+e.getValue().getQuantidade()));
+    }
+
+    private double getValorTotalEstoque(){
+        return produto45IntegerMap.values().stream()
                 .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
     }
 }
