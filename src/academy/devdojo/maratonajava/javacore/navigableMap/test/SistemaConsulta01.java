@@ -52,7 +52,7 @@ public class SistemaConsulta01 {
     private static int capturarOpcao(){
         while (true){
             try {
-                System.out.println("Digite uma das opções acima:");
+                System.out.print("Digite uma das opções acima:");
                 return Integer.parseInt(scanner.nextLine().trim());
             }catch (NumberFormatException e){
                 System.out.println("Erro. Número inválido.");
@@ -62,10 +62,6 @@ public class SistemaConsulta01 {
     }
 
     private static void agendarConsulta(){
-        if (agendaConsulta01.getRegistroConsultas().isEmpty()){
-            System.out.println("Nenhuma consulta registrada no sistema.");
-            return;
-        }
         LocalDateTime dataHora = AgendaConsulta01.validandoDataHora();
         if (agendaConsulta01.jaExiste(dataHora)){
             System.out.println("Consulta já existe neste horário.");

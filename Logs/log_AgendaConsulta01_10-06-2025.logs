@@ -1,0 +1,6 @@
+jun. 10, 2025 8:51:31 PM academy.devdojo.maratonajava.javacore.navigableMap.dominio.AgendaConsulta01 validandoDataHora
+WARNING: Erro no formato data ou hora:DD/MM/AAAA HH:mmText '10/11/2025' could not be parsed at index 10
+jun. 10, 2025 8:57:13 PM academy.devdojo.maratonajava.javacore.navigableMap.dominio.AgendaConsulta01 validandoMedico
+WARNING: Erro de regra de negocio:Campo nome médico não pode ser vazio ou conter caracteres.
+jun. 10, 2025 11:05:37 PM academy.devdojo.maratonajava.javacore.navigableMap.dominio.AgendaConsulta01 validandoDataHora
+WARNING: Erro no formato data ou hora:DD/MM/AAAA HH:mmText '10/10/2025' could not be parsed at index 10

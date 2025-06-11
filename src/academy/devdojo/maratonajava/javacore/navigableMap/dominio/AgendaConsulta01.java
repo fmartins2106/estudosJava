@@ -23,7 +23,7 @@ public class AgendaConsulta01 {
     public static String validandoPaciente(){
         while (true){
             try {
-                System.out.println("Paciente:");
+                System.out.print("Paciente:");
                 String paciente = scanner.nextLine().trim();
                 CadastroConsulta01.validacaoPaciente(paciente);
                 return paciente;
@@ -37,7 +37,7 @@ public class AgendaConsulta01 {
     public static String validandoMedico(){
         while (true){
             try {
-                System.out.println("Médico:");
+                System.out.print("Médico:");
                 String medico = scanner.nextLine().trim();
                 CadastroConsulta01.validacaoMedico(medico);
                 return medico;
@@ -51,7 +51,7 @@ public class AgendaConsulta01 {
     public static String validandoEspecialidade(){
         while (true){
             try {
-                System.out.println("Especialidade:");
+                System.out.print("Especialidade:");
                 String especialidade = scanner.nextLine().trim();
                 CadastroConsulta01.validacaoEspecialidade(especialidade);
                 return especialidade;
@@ -66,7 +66,7 @@ public class AgendaConsulta01 {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         while (true){
             try {
-                System.out.println("Data e hora (DD/MM/AAAA HH:mm):");
+                System.out.print("Data e hora (DD/MM/AAAA HH:mm):");
                 String entrada = scanner.nextLine().trim();
                 LocalDateTime dataHora = LocalDateTime.parse(entrada,formatter);
                 CadastroConsulta01.validacaoDataHora(dataHora);
@@ -100,6 +100,9 @@ public class AgendaConsulta01 {
     }
 
     public void listarTodas(){
+        if (registroConsultas.isEmpty()){
+            System.out.println("Nenhum registro");
+        }
         registroConsultas.forEach((k,v) -> System.out.println(v));
     }
 

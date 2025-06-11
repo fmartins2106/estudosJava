@@ -92,9 +92,10 @@ public class CadastroConsulta01 implements Consultavel01{
         this.dataHora = dataHora;
     }
 
+    private static final DateTimeFormatter formatt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     @Override
     public String toString(){
         return String.format("Paciente:"+this.paciente+" |Médico:"+this.medico+" |Especialidade:"+this.especialidade+" |Data e Hora:"+
-                DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+                this.dataHora.format(formatt));
     }
 }

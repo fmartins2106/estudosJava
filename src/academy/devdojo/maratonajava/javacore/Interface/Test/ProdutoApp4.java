@@ -68,7 +68,7 @@ public class ProdutoApp4 {
         double preco = SistemaProdutos04.validandoPreco();
         int quantidade = SistemaProdutos04.validandoQuantidade();
         String descricao = SistemaProdutos04.validandoDescricao();
-        if (sistemaProdutos04.atualizarProduto(nome,preco,quantidade,descricao)){
+        if (sistemaProdutos04.altualizarProduto(nome,preco,quantidade,descricao)){
             System.out.println("Produto atualizado.");
         }
     }

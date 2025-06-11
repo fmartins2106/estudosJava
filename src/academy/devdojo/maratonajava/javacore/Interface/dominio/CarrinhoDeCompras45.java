@@ -54,7 +54,12 @@ public class CarrinhoDeCompras45 {
         return carrinhoDeCompras.isEmpty();
     }
 
-//    public Map<Produto45, Integer> getCarrinhoDeCompras() {
+    public Map<Produto45, Integer> getCarrinhoDeCompras() {
+        return carrinhoDeCompras;
+    }
+
+
+    //    public Map<Produto45, Integer> getCarrinhoDeCompras() {
 //        return carrinhoDeCompras;
 //    }
 //

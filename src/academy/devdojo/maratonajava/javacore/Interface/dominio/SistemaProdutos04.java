@@ -68,6 +68,10 @@ public class SistemaProdutos04 {
         }
     }
 
+    public boolean addProdutoSistema(DadosProduto04 dadosProduto04){
+        return dadosProdutos.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
+    }
+
     public static String validandoDescricao(){
         while (true){
             try {
@@ -81,7 +85,7 @@ public class SistemaProdutos04 {
             }
         }
     }
-    private boolean alterarProduto(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
+    public boolean altualizarProduto(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
         return dadosProdutos.computeIfPresent(nome, (k,v) ->{
             v.setPreco(novoPreco);
             v.setQuantidade(novaQuantidade);
@@ -90,15 +94,15 @@ public class SistemaProdutos04 {
         }) != null;
     }
 
-    private boolean removerProduto(String nome){
+    public boolean removerProduto(String nome){
         return dadosProdutos.remove(nome) == null;
     }
 
-    private DadosProduto04 buscarProduto(String nome){
+    public DadosProduto04 buscarProduto(String nome){
         return dadosProdutos.get(nome);
     }
 
-    private void listarProdutos(){
+    public void listarProdutos(){
         if (dadosProdutos.isEmpty()){
             System.out.println("Nenhum produto cadastrado.");
             return;
@@ -106,17 +110,14 @@ public class SistemaProdutos04 {
         dadosProdutos.forEach((nome, dadosProduto04) -> System.out.println("Nome:"+nome+" =>"+dadosProduto04));
     }
 
-    private void gerarRelatorioEstoque(){
+    public void gerarRelatorioEstoque(){
         dadosProdutos.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
                 .forEach(e -> System.out.println("Produto:"+e.getKey()
                 +" |Quantidade:"+e.getValue().getQuantidade()));
     }
 
-    private double calcularValorTotalEstoque(){
+    public double calcularValorTotalEstoque(){
         return dadosProdutos.values().stream()
                 .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
     }
-
-
-
 }
