@@ -99,6 +99,7 @@ public class AgendaConsulta01 {
         return registroConsultas.higherEntry(LocalDateTime.now());
     }
 
+
     public void listarTodas(){
         if (registroConsultas.isEmpty()){
             System.out.println("Nenhum registro");
