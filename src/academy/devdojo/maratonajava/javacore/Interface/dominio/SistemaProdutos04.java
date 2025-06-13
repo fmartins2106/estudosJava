@@ -69,9 +69,6 @@ public class SistemaProdutos04 {
         }
     }
 
-    public boolean addProdutoSistema(DadosProduto04 dadosProduto04){
-        return dadosProdutos.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
-    }
 
     public static String validandoDescricao(){
         while (true){
@@ -86,6 +83,12 @@ public class SistemaProdutos04 {
             }
         }
     }
+
+
+    public boolean addProdutoSistema(DadosProduto04 dadosProduto04){
+        return dadosProdutos.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
+    }
+
     public boolean altualizarProduto(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
         return dadosProdutos.computeIfPresent(nome, (k,v) ->{
             v.setPreco(novoPreco);
@@ -156,4 +159,50 @@ public class SistemaProdutos04 {
         return produto45IntegerMap.values().stream()
                 .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
     }
+
+//    private static final Map<String,DadosProduto04> produtosMap = new LinkedHashMap<>();
+//
+//    private boolean addProdutoSistema(DadosProduto04 dadosProduto04){
+//        return dadosProdutos.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
+//    }
+//
+//    private boolean retirarProdutoSistema(String nome){
+//        return dadosProdutos.remove(nome) == null;
+//    }
+//
+//    private boolean alterarDadosProduto(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
+//        return dadosProdutos.computeIfPresent(nome,(k,v) -> {
+//            v.setPreco(novoPreco);
+//            v.setQuantidade(novaQuantidade);
+//            v.setDescricao(novaDescricao);
+//            return v;
+//        }) != null;
+//    }
+//
+//    private DadosProduto04 buscaPorNome(String nome){
+//        return dadosProdutos.get(nome);
+//    }
+//
+//    private void listarProdutos(){
+//        if (dadosProdutos.isEmpty()){
+//            System.out.println("Nenhum produto foi cadastrado.");
+//            return;
+//        }
+//        dadosProdutos.forEach((nome, dadosProduto04) -> System.out.println("Nome:"+nome+" =>"+dadosProduto04));
+//    }
+//
+//    private void getQuantidadeTotalEstoque(){
+//        dadosProdutos.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
+//                .forEach(e -> System.out.println("Produto:"+e.getKey()
+//                +" |Quantidade:"+e.getValue().getQuantidade()));
+//    }
+//
+//    private double getValorTotalEstoque(){
+//        return dadosProdutos.values().stream()
+//                .mapToDouble(e -> e.getPreco() * e.getQuantidade()).sum();
+//    }
+//
+
+
+
 }

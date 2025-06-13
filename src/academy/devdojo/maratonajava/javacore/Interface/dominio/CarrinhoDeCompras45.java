@@ -58,6 +58,51 @@ public class CarrinhoDeCompras45 {
         return carrinhoDeCompras;
     }
 
+//    private Map<Produto45,Integer> carrinhoComprasMap = new LinkedHashMap<>();
+//
+//    private void addProdutoCarrinho(Produto45 produto45, int quantidade){
+//        if (produto45.retirarEstoque(quantidade)){
+//            int quantidaedAtual = carrinhoComprasMap.getOrDefault(produto45,0);
+//            int novaQuantiade = quantidaedAtual + quantidade;
+//            carrinhoDeCompras.putIfAbsent(produto45,novaQuantiade);
+//            System.out.println("Produto adicionado no carrinho.");
+//        }
+//    }
+//
+//    private void retirarProdutoCarrinho(int index){
+//        List<Produto45> produtosList = new ArrayList<>(carrinhoComprasMap.keySet());
+//        Produto45 produtoSelecionado = produtosList.get(index);
+//        int quantidade = carrinhoComprasMap.remove(produtoSelecionado);
+//        produtoSelecionado.devolverParaEstoque(quantidade);
+//        System.out.println("Produto retirado do carrinho.");
+//    }
+//
+//    private void mostrarCarrinho(){
+//        if (carrinhoComprasMap.isEmpty()){
+//            System.out.println("Carrinho vazio.");
+//            return;
+//        }
+//        int i = 1;
+//        double total = 0;
+//        for (Map.Entry<Produto45,Integer> entry : carrinhoComprasMap.entrySet()){
+//            Produto45 produto45 = entry.getKey();
+//            int quantidade = entry.getValue();
+//            double subTotal = produto45.getPreco() * quantidade;
+//            System.out.println("Produto:"+produto45.getNome()+" |Quantidade:"+quantidade+" |Preço:R$"+produto45.getPreco());
+//            total += subTotal;
+//            i++;
+//        }
+//        System.out.println("Valor total do carrinho:R$"+df.format(total));
+//    }
+//
+//    private double calcularValorTotal(){
+//        double total = 0;
+//        for (Map.Entry<Produto45,Integer> entry : carrinhoComprasMap.entrySet()){
+//            total += entry.getKey().getPreco() * entry.getValue();
+//        }
+//        return total;
+//    }
+
 
 }
 
