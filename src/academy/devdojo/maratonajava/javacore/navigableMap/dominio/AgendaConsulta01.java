@@ -86,6 +86,7 @@ public class AgendaConsulta01 {
         System.out.println("Consulta agendada com sucesso.");
     }
 
+
     public void cancelar(LocalDateTime horario){
         registroConsultas.remove(horario);
         System.out.println("Consulta removida com sucesso.");
@@ -99,6 +100,13 @@ public class AgendaConsulta01 {
         return registroConsultas.higherEntry(LocalDateTime.now());
     }
 
+    public void listarTodos(){
+        if (registroConsultas.isEmpty()){
+            System.out.println("Nenhum registro.");
+            return;
+        }
+        registroConsultas.forEach((k,v) -> System.out.println(v));
+    }
 
     public void listarTodas(){
         if (registroConsultas.isEmpty()){
