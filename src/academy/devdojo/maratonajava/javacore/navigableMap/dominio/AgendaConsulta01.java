@@ -118,21 +118,40 @@ public class AgendaConsulta01 {
 //    public Map<LocalDateTime,Consultavel01> proximasConsultas(){
 //        return registroConsultas.higherEntry(LocalDateTime.now());
 //    }
+    // finalizando treinamento parte 1
+
+    //iniciando treinamento parte 2
+
+    public void listarTodos(){
+        if (registroConsultas.isEmpty()){
+            System.out.println("Nenhuma consulta agendada.");
+            return;
+        }
+        registroConsultas.forEach((dateTime, consultavel01) ->
+                System.out.println("Data:"+dateTime+" |Consulta:"+consultavel01));
+    }
+
+    public void consultarAntes(LocalDateTime horario){
+        registroConsultas.headMap(horario).forEach((dateTime, consultavel01) ->
+                System.out.println("Data:"+horario+" |Consulta:"+consultavel01));
+    }
+
+    public void consultarDeposit(LocalDateTime horario){
+        registroConsultas.tailMap(horario).forEach((dateTime, consultavel01) ->
+                System.out.println("Data:"+dateTime+" |Horário:"+consultavel01));
+    }
+
+    //finalizando terinamento parte 2
 
     public void listarTodos(){
         if (registroConsultas.isEmpty()){
             System.out.println("Nenhum registro.");
             return;
         }
-        registroConsultas.forEach((k,v) -> System.out.println(v));
+        registroConsultas.forEach((dateTime, consultavel01) ->
+                System.out.println("Data:"+dateTime+" |Consulta:"+consultavel01));
     }
 
-    public void listarTodas(){
-        if (registroConsultas.isEmpty()){
-            System.out.println("Nenhum registro");
-        }
-        registroConsultas.forEach((k,v) -> System.out.println(v));
-    }
 
     public void consultarAntes(LocalDateTime horario){
         registroConsultas.headMap(horario).forEach((k,v) ->
