@@ -32,7 +32,7 @@ public class SistemaConsulta01 {
                     proximaConsulta();
                     break;
                 case 4:
-                    agendaConsulta01.listarTodas();
+                    agendaConsulta01.listarTodos();
                     break;
                 case 5:
                     listarTodasConsultas();
