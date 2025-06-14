@@ -5,6 +5,7 @@ import academy.devdojo.maratonajava.javacore.navigableMap.excessoes.Especialidad
 import academy.devdojo.maratonajava.javacore.navigableMap.excessoes.MedicoCadastroConsulta;
 import academy.devdojo.maratonajava.javacore.navigableMap.excessoes.PacienteCadastroConsulta;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -86,7 +87,6 @@ public class AgendaConsulta01 {
         System.out.println("Consulta agendada com sucesso.");
     }
 
-
     public void cancelar(LocalDateTime horario){
         registroConsultas.remove(horario);
         System.out.println("Consulta removida com sucesso.");
@@ -99,6 +99,25 @@ public class AgendaConsulta01 {
     public Map.Entry<LocalDateTime,Consultavel01> proximasConsulta(){
         return registroConsultas.higherEntry(LocalDateTime.now());
     }
+
+//    iniciando treinamento
+//    public void agendar(Consultavel01 consultavel01){
+//        registroConsultas.put(consultavel01.getDataHora(),consultavel01);
+//        System.out.println("Consulta agendada com sucesso.");
+//    }
+//
+//    public void cancelarAgenda(LocalDateTime horario){
+//        registroConsultas.remove(horario);
+//        System.out.println("Produto removido com sucesso.");
+//    }
+//
+//    public boolean jaExiste(LocalDateTime dateTime){
+//        return registroConsultas.containsKey(dateTime);
+//    }
+//
+//    public Map<LocalDateTime,Consultavel01> proximasConsultas(){
+//        return registroConsultas.higherEntry(LocalDateTime.now());
+//    }
 
     public void listarTodos(){
         if (registroConsultas.isEmpty()){

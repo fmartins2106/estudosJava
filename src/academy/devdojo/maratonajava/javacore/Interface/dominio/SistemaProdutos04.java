@@ -125,84 +125,42 @@ public class SistemaProdutos04 {
                 .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
     }
 
-    private static final Logger logger2 = ConsultaLogger01.getLogger(SistemaProdutos04.class);
-    private final Map<String,DadosProduto04> produto45IntegerMap = new LinkedHashMap<>();
-
-    private boolean addProduto(DadosProduto04 dadosProduto04){
-        return produto45IntegerMap.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
-    }
-
-    private boolean retirarProduto(String nome){
-        return produto45IntegerMap.remove(nome) == null;
-    }
-
-    private boolean alterarDados(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
-        return produto45IntegerMap.computeIfPresent(nome, (k,v) ->{
-            v.setPreco(novoPreco);
-            v.setQuantidade(novaQuantidade);
-            v.setDescricao(novaDescricao);
-            return v;
-        }) !=null;
-    }
-
-    private DadosProduto04 buscarProNome2(String nome){
-        return produto45IntegerMap.get(nome);
-    }
-
-    private void getQuantidadeTotalEstoque(){
-        produto45IntegerMap.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
-                .forEach(e -> System.out.println("Produto:"+e.getKey()
-                +" |Quantidade:"+e.getValue().getQuantidade()));
-    }
-
-    private double getValorTotalEstoque(){
-        return produto45IntegerMap.values().stream()
-                .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
-    }
-
-//    private static final Map<String,DadosProduto04> produtosMap = new LinkedHashMap<>();
+//    private final Map<String,DadosProduto04> produtosMap = new LinkedHashMap<>();
 //
-//    private boolean addProdutoSistema(DadosProduto04 dadosProduto04){
-//        return dadosProdutos.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
+//    public boolean addProdutosSistema(DadosProduto04 dadosProduto04){
+//        return produtosMap.putIfAbsent(dadosProduto04.getNome(),dadosProduto04) == null;
 //    }
 //
-//    private boolean retirarProdutoSistema(String nome){
-//        return dadosProdutos.remove(nome) == null;
-//    }
-//
-//    private boolean alterarDadosProduto(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
-//        return dadosProdutos.computeIfPresent(nome,(k,v) -> {
+//    public boolean alterarDadosCarrinho(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
+//        return produtosMap.computeIfPresent(nome,(k,v) ->{
 //            v.setPreco(novoPreco);
 //            v.setQuantidade(novaQuantidade);
 //            v.setDescricao(novaDescricao);
 //            return v;
-//        }) != null;
+//        }) !=null;
 //    }
 //
-//    private DadosProduto04 buscaPorNome(String nome){
-//        return dadosProdutos.get(nome);
+//    public DadosProduto04 buscarPorNome(String nome){
+//        return produtosMap.get(nome);
 //    }
 //
-//    private void listarProdutos(){
-//        if (dadosProdutos.isEmpty()){
+//    public void listarProdutos(){
+//        if (produtosMap.isEmpty()){
 //            System.out.println("Nenhum produto foi cadastrado.");
 //            return;
 //        }
-//        dadosProdutos.forEach((nome, dadosProduto04) -> System.out.println("Nome:"+nome+" =>"+dadosProduto04));
+//        produtosMap.forEach((nome, dadosProduto04) -> System.out.println(nome+" ->"+dadosProduto04));
 //    }
 //
-//    private void getQuantidadeTotalEstoque(){
-//        dadosProdutos.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
-//                .forEach(e -> System.out.println("Produto:"+e.getKey()
-//                +" |Quantidade:"+e.getValue().getQuantidade()));
+//    public void getQuantidadeTotalEstoque(){
+//        produtosMap.entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().getQuantidade()))
+//                .forEach(e -> System.out.println("Nome"+e.getKey()+
+//                        " |Quantidade:"+e.getValue().getQuantidade()));
 //    }
 //
-//    private double getValorTotalEstoque(){
-//        return dadosProdutos.values().stream()
-//                .mapToDouble(e -> e.getPreco() * e.getQuantidade()).sum();
+//    public double getValorTotalEstoque(){
+//        return produtosMap.values().stream()
+//                .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
 //    }
-//
-
-
 
 }
