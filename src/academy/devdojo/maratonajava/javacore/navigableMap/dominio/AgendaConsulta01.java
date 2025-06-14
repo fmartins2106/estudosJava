@@ -99,44 +99,44 @@ public class AgendaConsulta01 {
 
     //iniciando treinamento parte 2
 
-    public void addConsulta(Consultavel01 consultavel01){
-        registroConsultas.put(consultavel01.getDataHora(),consultavel01);
-        System.out.println("Consulta registrada com sucesso.");
-    }
-
-    public void cancelarConsulta(LocalDateTime horario){
-        registroConsultas.remove(horario);
-        System.out.println("Consulta cancelada com sucesso.");
-    }
-
-    public boolean jaExiste(LocalDateTime dateTime){
-        return registroConsultas.containsKey(dateTime);
-    }
-
-    public Map<LocalDateTime,Consultavel01> proximasConsultas(){
-        return registroConsultas.higherEntry(LocalDateTime.now());
-    }
-    public void  listarTodos(){
-        if (registroConsultas.isEmpty()){
-            System.out.println("Nenhuma consutalta cadastrada.");
-            return;
-        }
-        registroConsultas.forEach((dateTime, consultavel01) -> System.out.println("Data:"+dateTime+" |Dados da consulta:"+consultavel01));
-    }
-
-    public void consultarAntes(LocalDateTime horario){
-        registroConsultas.headMap(horario).forEach((dateTime, consultavel01) ->
-                System.out.println(consultavel01));
-    }
-
-    public void consultarDepois(LocalDateTime horario){
-        registroConsultas.tailMap(horario,false).forEach((dateTime, consultavel01) ->
-                System.out.println(consultavel01));
-    }
-
-    public Map<LocalDateTime,Consultavel01> getRegistroConsulta(){
-        return registroConsultas;
-    }
+//    public void addConsulta(Consultavel01 consultavel01){
+//        registroConsultas.put(consultavel01.getDataHora(),consultavel01);
+//        System.out.println("Consulta registrada com sucesso.");
+//    }
+//
+//    public void cancelarConsulta(LocalDateTime horario){
+//        registroConsultas.remove(horario);
+//        System.out.println("Consulta cancelada com sucesso.");
+//    }
+//
+//    public boolean jaExiste(LocalDateTime dateTime){
+//        return registroConsultas.containsKey(dateTime);
+//    }
+//
+//    public Map<LocalDateTime,Consultavel01> proximasConsultas(){
+//        return registroConsultas.higherEntry(LocalDateTime.now());
+//    }
+//    public void  listarTodos(){
+//        if (registroConsultas.isEmpty()){
+//            System.out.println("Nenhuma consutalta cadastrada.");
+//            return;
+//        }
+//        registroConsultas.forEach((dateTime, consultavel01) -> System.out.println("Data:"+dateTime+" |Dados da consulta:"+consultavel01));
+//    }
+//
+//    public void consultarAntes(LocalDateTime horario){
+//        registroConsultas.headMap(horario).forEach((dateTime, consultavel01) ->
+//                System.out.println(consultavel01));
+//    }
+//
+//    public void consultarDepois(LocalDateTime horario){
+//        registroConsultas.tailMap(horario,false).forEach((dateTime, consultavel01) ->
+//                System.out.println(consultavel01));
+//    }
+//
+//    public Map<LocalDateTime,Consultavel01> getRegistroConsulta(){
+//        return registroConsultas;
+//    }
 
     //finalizando terinamento parte 2
 
