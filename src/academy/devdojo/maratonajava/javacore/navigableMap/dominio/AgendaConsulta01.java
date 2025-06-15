@@ -163,10 +163,6 @@ public class AgendaConsulta01 {
 //    public void consultarDepois(LocalDateTime horario){
 //        registroConsultas.tailMap(horario,true)
 //                .forEach((dateTime, consultavel01) -> System.out.println(consultavel01));
-    }
-
-
-
-
-    //finalizando terinamento parte 2
+//    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       //finalizando terinamento parte 2
 }

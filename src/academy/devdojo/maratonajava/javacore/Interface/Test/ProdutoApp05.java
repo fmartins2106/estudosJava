@@ -89,8 +89,8 @@ public class ProdutoApp05 {
         System.out.println("[2] Atualizar Produto.");
         System.out.println("[3] Remover produto.");
         System.out.println("[4] Buscar produto.");
-        System.out.println("[5] Listar Prodotuto.");
-        System.out.println("[6] Relatório de estoque.");
+        System.out.println("[5] Relatório de estoque.");
+        System.out.println("[6] Listar Prodotuto.");
         System.out.println("[7] Valor total em estoque.");
         System.out.println("[8] Sair.");
     }
