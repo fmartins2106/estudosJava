@@ -49,16 +49,29 @@ public class ProdutoApp05 {
     }
 
     private static void pesquisaPorNome(){
+        if (sistemaProduto05.getProdutosCadastrados().isEmpty()){
+            System.out.println("Nenhum produto cadastrado.");
+            return;
+        }
         String nome = SistemaProdutos05.validandoNome();
-        sistemaProduto05.buscaPorNome(nome);
+        if (sistemaProduto05.getProdutosCadastrados().containsKey(nome)){
+            sistemaProduto05.buscaPorNome(nome);
+            return;
+        }
+        System.out.println("Produto não encontrado. Verifique.");
     }
+
     private static void retirarProdutoSistema(){
         if (sistemaProduto05.getProdutosCadastrados().isEmpty()){
             System.out.println("Nenhum produto cadastrado.");
             return;
         }
         String nome = SistemaProdutos05.validandoNome();
-        sistemaProduto05.retirarProdutoSistema(nome);
+        if (sistemaProduto05.getProdutosCadastrados().containsKey(nome)){
+            sistemaProduto05.retirarProdutoSistema(nome);
+            return;
+        }
+        System.out.println("Nome não encontrado.");
     }
 
     private static void atualizarProduto(){
@@ -67,15 +80,23 @@ public class ProdutoApp05 {
             return;
         }
         String nome = SistemaProdutos05.validandoNome();
-        double preco = SistemaProdutos05.validandoPreco();
-        int quantidade = SistemaProdutos05.validandoQuantidade();
-        String descricao = SistemaProdutos05.validandoDescricao();
-        sistemaProduto05.alterarDadosProduto(nome,preco,quantidade,descricao);
-        System.out.println("Produto atualizado com sucesso.");
+        if (sistemaProduto05.getProdutosCadastrados().containsKey(nome)){
+            double preco = SistemaProdutos05.validandoPreco();
+            int quantidade = SistemaProdutos05.validandoQuantidade();
+            String descricao = SistemaProdutos05.validandoDescricao();
+            sistemaProduto05.alterarDadosProduto(nome,preco,quantidade,descricao);
+            System.out.println("Produto atualizado com sucesso.");
+            return;
+        }
+        System.out.println("Produto não encontrado.");
     }
 
     public static void cadastroProduto(){
         String nome = SistemaProdutos05.validandoNome();
+        if (sistemaProduto05.getProdutosCadastrados().containsKey(nome)){
+            System.out.println("Produto já cadastrado. Verifique.");
+            return;
+        }
         double preco = SistemaProdutos05.validandoPreco();
         int quantidade = SistemaProdutos05.validandoQuantidade();
         String descricao = SistemaProdutos05.validandoDescricao();
