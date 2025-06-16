@@ -250,10 +250,20 @@ public class Estoque17 {
             System.out.println("Lista vazia.");
         }else {
             produto17s.removeIf(produto17 -> produto17 instanceof ProdutosPereciveis17 &&
-                    ((ProdutosPereciveis17)produto17).isValido());
+                    !((ProdutosPereciveis17)produto17).isValido());
             System.out.println("Produto(s) vendidos excluidos com sucesso.");
         }
     }
+
+//    public void removerProdutoVencido(){
+//        if (produto17s.isEmpty()){
+//            System.out.println("Nenhum produto foi cadastrado.");
+//            return;
+//        }
+//        produto17s.removeIf(produto17 -> produto17 instanceof ProdutosPereciveis17 &&
+//                !((ProdutosPereciveis17) produto17).isValido());
+//        System.out.println("Produto removido com sucesso.");
+//    }
 
     public List<Produto17> getProduto17s() {
         return produto17s;

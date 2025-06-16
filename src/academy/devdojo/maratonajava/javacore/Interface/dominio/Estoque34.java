@@ -181,6 +181,15 @@ public class Estoque34 {
         System.out.println("Produto não encontrado.");
     }
 
+//    public void excluirProduto(String nome){
+//        if (pesquisaPorNome(nome).isPresent()){
+//            produtoBase34s.removeIf(produtoBase34 -> produtoBase34.getNome().equalsIgnoreCase(nome));
+//            System.out.println("Produto removido com sucesso.");
+//            return;
+//        }
+//        System.out.println("Produto não encontrado.");
+//    }
+
     public void exibirPesquisaPorNome(String nome){
         pesquisaPorNome(nome).ifPresentOrElse(System.out::println, () ->
                 System.out.println("Nenhum produto foi encontrado."));

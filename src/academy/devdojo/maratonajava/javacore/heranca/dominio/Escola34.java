@@ -223,6 +223,16 @@ public class Escola34 {
         }
     }
 
+//    public void excluirPessoaSistema(){
+//        Optional<Pessoa34> pessoa34Optional = pesquisaPorNome(new Scanner(System.in));
+//        if (pessoa34Optional.isPresent()){
+//            pessoa34s.removeIf(pessoa34 -> pessoa34.equals(pessoa34Optional.get()));
+//            System.out.println("Produto removido com sucesso.");
+//            return;
+//        }
+//        System.out.println("Produto não encontrado.");
+//    }
+
     public void alterarDados(Scanner scanner){
         Optional<Pessoa34> pessoa34Optional = pesquisaPorNome(scanner);
         if (pessoa34Optional.isPresent()){

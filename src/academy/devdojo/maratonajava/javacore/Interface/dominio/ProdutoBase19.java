@@ -8,7 +8,7 @@ import academy.devdojo.maratonajava.javacore.excessoes.QuantidadeProdutoBase19;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public abstract class ProdutoBase19 implements Produtos19{
+public class ProdutoBase19 implements Produtos19{
     protected String nome;
     protected double preco;
     protected int quantidade;

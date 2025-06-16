@@ -123,6 +123,17 @@ public class Empresa22 {
         }
     }
 
+//    public void excluirDados(Scanner scanner){
+//        Optional<Funcionario22> funcionario22Optional = pesquisaPorNome(scanner);
+//        if (funcionario22Optional.isPresent()){
+//            funcionario22s.removeIf(funcionario22 -> funcionario22Optional.get().equals(funcionario22));
+//            System.out.println("Dados do funcionário removido com sucesso.");
+//            return;
+//        }
+//        System.out.println("Dados do funcionário não encontrado.");
+//    }
+
+
     public void alterarDadosFuncionario(Scanner scanner){
         Optional<Funcionario22> funcionario22Optional = pesquisaPorNome(scanner);
         if (funcionario22Optional.isPresent()){
