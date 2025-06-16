@@ -71,8 +71,7 @@ public class LambdasJava {
     }
 
     public void pesquisasPorNome(){
-        if (produtos.isEmpty()){
-            System.out.println("Produto não encontrado.");
+        if (produtos.isEmpty()){           System.out.println("Produto não encontrado.");
             return;
         }
         String nome = scanner.nextLine().trim();

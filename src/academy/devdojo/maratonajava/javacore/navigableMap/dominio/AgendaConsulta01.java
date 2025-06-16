@@ -97,8 +97,6 @@ public class AgendaConsulta01 {
         return registroConsultas.higherEntry(LocalDateTime.now());
     }
 
-
-
     public void listarTodos(){
         if (registroConsultas.isEmpty()){
             System.out.println("Nenhum registro.");
@@ -107,7 +105,6 @@ public class AgendaConsulta01 {
         registroConsultas.forEach((dateTime, consultavel01) ->
                 System.out.println("Data:"+dateTime+" |Consulta:"+consultavel01));
     }
-
 
     public void consultarAntes(LocalDateTime horario){
         registroConsultas.headMap(horario).forEach((k,v) ->
