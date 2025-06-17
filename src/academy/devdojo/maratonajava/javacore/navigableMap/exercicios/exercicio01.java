@@ -99,7 +99,7 @@ public class exercicio01 {
         return registroConsultas01.containsKey(dateTime);
     }
 
-    private Map<LocalDateTime,Consultavel01> proximasConsultas(){
+    private Map.Entry<LocalDateTime,Consultavel01> proximasConsulta(){
         return registroConsultas01.higherEntry(LocalDateTime.now());
     }
     private void listarTodos(){
