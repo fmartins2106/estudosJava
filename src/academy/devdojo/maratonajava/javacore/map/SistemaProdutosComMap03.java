@@ -72,5 +72,5 @@ public class SistemaProdutosComMap03 {
                 .mapToDouble(e -> e.getQuantidade() * e.getPreco()).sum();
     }
 
-    
+
 }
