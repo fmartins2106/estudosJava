@@ -19,7 +19,7 @@ import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class exercicio01 {
+public class Exercicio01 {
     private static final Scanner scanner = new Scanner(System.in);
     private static final Logger logger = ConsultaLogger01.getLogger(AgendaConsulta01.class);
     private NavigableMap<LocalDateTime, Consultavel01> registroConsultas01 = new TreeMap<>();
