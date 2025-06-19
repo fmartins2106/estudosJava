@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.FileHandler;
@@ -15,7 +17,7 @@ import java.util.logging.SimpleFormatter;
 public class ProdutosLogger05 {
 
     private static final String LOGS_DIRETORIO = "logs";
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+    private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     public static Logger getLogger(Class<?> clazz){
         Logger logger = Logger.getLogger(clazz.getName());
@@ -30,7 +32,7 @@ public class ProdutosLogger05 {
     private static void configuracaoLogger(Logger logger, String className){
         try {
             Files.createDirectories(Paths.get(LOGS_DIRETORIO));
-            String dataAtual = DATE_FORMAT.format(new Date());
+            String dataAtual = DATE_FORMAT.format(LocalDateTime.now());
             String logFileName = String.format("log_%s_%s.logs",className,dataAtual);
             Path logFilePath = Paths.get(LOGS_DIRETORIO,logFileName);
 
