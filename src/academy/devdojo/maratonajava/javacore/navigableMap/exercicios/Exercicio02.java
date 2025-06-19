@@ -44,7 +44,7 @@ public class Exercicio02 {
                 .forEach((dateTime, consultavel01) -> System.out.println(consultavel01));
     }
 
-    private consultarDepois(LocalDateTime horario){
+    private void consultarDepois(LocalDateTime horario){
         agendaConsultas.tailMap(horario,false)
                 .forEach((dateTime, consultavel01) -> System.out.println(consultavel01));
     }
