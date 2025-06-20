@@ -74,4 +74,65 @@ public class Stream03 {
                 .forEach(System.out::println);
     }
 
+    private void produtosMaior100Unidade(){
+        if (produto19s.isEmpty()){
+            System.out.println("Nenhum produto foi encontrado.");
+            return;
+        }
+        List<Produto19> produtoEncontrado = produto19s.stream().filter(produto19 -> produto19.getQuantidade() > 100)
+                .collect(Collectors.toList());
+        if (produtoEncontrado.isEmpty()){
+            System.out.println("Nenhum produto foi encontrado");
+            return;
+        }
+        System.out.println(produtoEncontrado);
+    }
+//__________________________________________________________________________________________________________________
+//    Conteúdo novo
+
+    private void listarPrecosMenores4(){
+        List<String> produtoEncontrado = produto19s.stream()
+                .sorted(Comparator.comparing(Produto19::getNome))
+                .filter(produto19 -> produto19.getQuantidade() <= 100)
+                .limit(99)
+                .map(Produto19::getNome)
+                .collect(Collectors.toList());
+        System.out.println(produtoEncontrado);
+    }
+
+    private void contarElementos(){
+        long contar = produto19s.stream()
+                .distinct()
+                .filter(produto19 -> produto19.getValor() <= 4)
+                .count();
+        System.out.println(contar);
+    }
+
+//    Pesquisa sobre flatMap
+//    Pesquisar sobre reduce
+
+    private void pesquisasPreco(){
+        produto19s.stream().anyMatch(produto19 -> produto19.getValor() > 9);
+        produto19s.stream().anyMatch(produto19 -> produto19.getValor() > 0);
+        produto19s.stream().noneMatch(produto19 -> produto19.getValor() < 0);
+
+        produto19s.stream().filter(produto19 -> produto19.getValor() > 3)
+                .findFirst()
+                .ifPresent(System.out::println);
+
+        produto19s.stream().filter(produto19 -> produto19.getValor() > 3)
+                .max(Comparator.comparing(Produto19::getValor))
+                .ifPresent(System.out::println);
+    }
+
+    private void somarPrecos(){
+        double somaValores = produto19s.stream()
+                .mapToDouble(Produto19::getValor)
+                .filter(valor -> valor < 3)
+                .sum();
+    }
+
+
+
+
 }
