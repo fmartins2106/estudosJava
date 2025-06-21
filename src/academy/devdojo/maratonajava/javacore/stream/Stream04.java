@@ -49,7 +49,7 @@ public class Stream04 {
 
     private void listarNomesProdutos(){
         produto19s.stream().map(Produto19::getNome)
-                .collect(Collectors.toList())
+                .toList()
                 .forEach(System.out::println);
     }
 
