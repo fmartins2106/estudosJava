@@ -1,8 +1,6 @@
 package academy.devdojo.maratonajava.javacore.stream;
 
 import academy.devdojo.maratonajava.javacore.Aintroducaoclasses.dominio.Produto19;
-import com.sun.source.doctree.EscapeTree;
-import com.sun.source.doctree.UsesTree;
 
 import java.util.ArrayList;
 import java.util.Comparator;

@@ -3,10 +3,7 @@ package academy.devdojo.maratonajava.javacore.stream;
 import academy.devdojo.maratonajava.javacore.Aintroducaoclasses.dominio.Produto19;
 
 import javax.crypto.spec.PSource;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Stream05 {
@@ -187,8 +184,83 @@ public class Stream05 {
     private void primeiroValorFiltro(){
         produto19s.stream().filter(produto19 -> produto19.getValor() < 3)
                 .findFirst()
-                .ifPresentOrElse( );
+                .ifPresentOrElse(System.out::println, ()->
+                        System.out.println("Não tem produto com valor menor que 3."));
     }
+
+    private double somarPrecos(){
+        return produto19s.stream()
+                .mapToDouble(produto19s -> produto19s.getValor() * produto19s.getQuantidade())
+                .sum();
+    }
+
+    private void somarPrecos2(){
+        double somarPrecos = produto19s.stream()
+                .mapToDouble(Produto19::getValor) // Pega só os valores (double) dos produtos
+                .filter(aDouble -> aDouble < 3) // Filtra valores menores que 3
+                .sum();// Soma todos esses valores filtrados
+
+    }
+
+
+    // Iniciando uso de Collections
+    private void calculandoDiversasFormas() {
+        // 🔥 Maior valor (forma 1)
+        produto19s.stream()
+                .max(Comparator.comparing(Produto19::getValor))
+                .ifPresent(p -> System.out.println("Maior (forma 1): " + p));
+
+        // 🔥 Maior valor (forma 2 usando Collectors)
+        produto19s.stream()
+                .collect(Collectors.maxBy(Comparator.comparing(Produto19::getValor)))
+                .ifPresent(p -> System.out.println("Maior (forma 2): " + p));
+
+
+        // Soma dos valores (forma 1)
+        double soma1 = produto19s.stream()
+                .mapToDouble(Produto19::getValor)
+                .sum();
+        System.out.println("Soma (forma 1): " + soma1);
+
+        // Soma dos valores (forma 2 usando Collectors)
+        double soma2 = produto19s.stream()
+                .collect(Collectors.summingDouble(Produto19::getValor));
+        System.out.println("Soma (forma 2): " + soma2);
+
+
+        // Média dos valores (forma 1)
+        produto19s.stream()
+                .mapToDouble(Produto19::getValor)
+                .average()
+                .ifPresent(avg -> System.out.println("Média (forma 1): " + avg));
+
+        // Média dos valores (forma 2 usando Collectors)
+        double media = produto19s.stream()
+                .collect(Collectors.averagingDouble(Produto19::getValor));
+        System.out.println("Média (forma 2): " + media);
+
+
+        // Estatísticas completas (count, sum, min, max, average)
+        DoubleSummaryStatistics stats = produto19s.stream()
+                .collect(Collectors.summarizingDouble(Produto19::getValor));
+        System.out.println("Estatísticas: " + stats);
+        // Você pode acessar diretamente:
+        System.out.println("→ Soma: " + stats.getSum());
+        System.out.println("→ Média: " + stats.getAverage());
+        System.out.println("→ Máximo: " + stats.getMax());
+        System.out.println("→ Mínimo: " + stats.getMin());
+        System.out.println("→ Quantidade: " + stats.getCount());
+
+
+        // Lista dos nomes separados por vírgula
+        String nomes = produto19s.stream()
+                .map(Produto19::getNome)
+                .collect(Collectors.joining(", "));
+        System.out.println("Nomes: " + nomes);
+    }
+
+
+
 
 
 
