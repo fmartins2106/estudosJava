@@ -49,12 +49,18 @@ public class SistemaProdutosComMap05 {
     }
 
     private boolean alterarDados(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
-        return produto05Map.computeIfPresent(nome,(k,v) ->{
+        DadosProduto05 alteracao = produto05Map.computeIfPresent(nome,(k,v) ->{
             v.setPreco(novoPreco);
             v.setQuantidade(novaQuantidade);
             v.setDescricao(novaDescricao);
             return v;
-        }) != null;
+        });
+        if (alteracao != null){
+            System.out.println("Produto: "+nome+" alterado com sucesso.");
+            return false;
+        }
+        System.out.println("Produto: "+nome+" não encontrado.");
+        return true;
     }
 
     private void listarProdutos(){
