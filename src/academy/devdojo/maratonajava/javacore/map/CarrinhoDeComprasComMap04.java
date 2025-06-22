@@ -5,7 +5,7 @@ import academy.devdojo.maratonajava.javacore.Interface.dominio.Produto45;
 import java.text.DecimalFormat;
 import java.util.*;
 
-public class carrinhoDeComprasComMap04 {
+public class CarrinhoDeComprasComMap04 {
     private static final Scanner scanner = new Scanner(System.in);
     private final Map<Produto45,Integer> carrinhoDeCompras = new LinkedHashMap<>();
     private static final DecimalFormat df = new DecimalFormat("0.00");

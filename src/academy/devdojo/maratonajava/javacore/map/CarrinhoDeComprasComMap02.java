@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class carrinhoDeComprasComMap02 {
+public class CarrinhoDeComprasComMap02 {
     private final Map<Produto45,Integer> produto45IntegerMap = new LinkedHashMap<>();
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
