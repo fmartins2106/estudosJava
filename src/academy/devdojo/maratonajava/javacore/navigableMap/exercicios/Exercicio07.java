@@ -32,7 +32,7 @@ public class Exercicio07 {
         () -> System.out.println("Consulta não encontrada."));
     }
 
-    private void pesquisaPorNome(LocalDateTime horario){
+    private void pesquisaPorData(LocalDateTime horario){
         if (registroDeConsultas.isEmpty()){
             System.out.println("Nenhuma consulta cadastrada.");
             return;
@@ -40,7 +40,7 @@ public class Exercicio07 {
         registroDeConsultas.entrySet().stream().
                 filter(dataHora -> dataHora.equals(horario))
                 .findFirst()
-                .ifPresentOrElse(consulta -> System.out.println(consulta),() -> System.out.println("Consulta não encontrada."));
+                .ifPresentOrElse(consulta -> System.out.println("Consulta:"+consulta.getValue()),() -> System.out.println("Consulta não encontrada."));
     }
 
     private boolean jaExiste(LocalDateTime consulta){
