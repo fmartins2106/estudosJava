@@ -171,21 +171,84 @@ public class Stream07 {
         System.out.println(contar);
     }
 
-    private void pesquisaPorQuantidade(){
+    private boolean pesquisaPorValor1(){
+        return produto19s.stream().anyMatch(produto19 -> produto19.getValor() > 5);
+    }
+    private boolean pesquisaPorValor2(){
+        return produto19s.stream().anyMatch(produto19 -> produto19.getValor() < 5);
+
+    }
+
+    private boolean pesquisaPorValor3(){
+        return produto19s.stream().noneMatch(produto19 -> produto19.getValor() > 0);
+    }
+
+    private void maiorValorFiltro(){
         if (produto19s.isEmpty()){
             System.out.println("Nenhum produto foi cadastrado.");
             return;
         }
-        
+        produto19s.stream()
+                .filter(produto19 -> produto19.getQuantidade() > 100)
+                .max(Comparator.comparing(Produto19::getQuantidade))
+                .ifPresentOrElse(System.out::println,
+                        () -> System.out.println("Nenhum produto foi encontrado."));
     }
 
+
+    private void maiorValorFiltro2(){
+        if (produto19s.isEmpty()){
+            System.out.println("Nenhum produto foi cadastrado.");
+            return;
+        }
+        produto19s.stream().filter(produto19 -> produto19.getValor() > 3)
+                .max(Comparator.comparing(Produto19::getValor))
+                .ifPresentOrElse(System.out::println,
+                        () -> System.out.println("Nenhum produto foi encontrado."));
+    }
+
+    private double somarPrecos(){
+        return produto19s.stream()
+                .mapToDouble(Produto19::getValor)
+                .sum();
+    }
+
+    private void primeiroValorEncontrado(){
+        if (produto19s.isEmpty()){
+            System.out.println("Nenhum valor foi encontrado.");
+            return;
+        }
+        produto19s.stream()
+                .filter(produto19 -> produto19.getValor() > 5)
+                .findFirst()
+                .ifPresentOrElse(System.out::println,
+                        () -> System.out.println("Nenhum produto foi encontrado."));
+    }
+
+    private double somarPrecos2(){
+        return produto19s.stream().mapToDouble(Produto19::getValor)
+                .sum();
+    }
+
+    private double calularValorTotalEstoque(){
+        return produto19s.stream()
+                .mapToDouble(produto19 -> produto19.getQuantidade() * produto19.getValor())
+                .sum();
+    }
+
+    private double somarprecos2(){
+        return produto19s.stream()
+                .mapToDouble(Produto19::getValor)
+                .filter(produto19 -> produto19 > 5)
+                .sum();
+    }
 
 
     public static void main(String[] args) {
         Stream07 stream07 = new Stream07();
 
-        Produto19 produto1 = new Produto19(1,"Nome um","comida q",3.33,90,100);
-        Produto19 produto2 = new Produto19(1,"Nome dois","comida a",5.33,200,300);
+        Produto19 produto1 = new Produto19(1,"Nome um","comida q",5.33,90,100);
+        Produto19 produto2 = new Produto19(1,"Nome dois","comida a",3.33,200,300);
         Produto19 produto3 = new Produto19(1,"Nome tres","comida v",11.33,300,144);
 
         stream07.addProdutoSistema(produto1);
@@ -196,6 +259,17 @@ public class Stream07 {
         stream07.listarSomenteNomeOrdemAlfabetica();
         stream07.quantidadeMenor100();
         stream07.faixaPreco();
+        System.out.println("_______________________");
+        stream07.maiorValorFiltro();
+        System.out.println("_______________________");
+        System.out.println("Existe valor maior que R$5 ->"+stream07.pesquisaPorValor1());
+        System.out.println("Existe valor menor que R$5 ->"+stream07.pesquisaPorValor2());
+        System.out.println("Existe valor menor que zero:"+stream07.pesquisaPorValor3());
+        System.out.printf("A soma dos valores dos produtos:R$%.2f",stream07.somarPrecos());
+        System.out.println("______________________");
+        stream07.primeiroValorEncontrado();
+        System.out.println("Valor total em estoque:R$"+stream07.calularValorTotalEstoque());
+        System.out.println("Soma total dos preços:R$"+stream07.somarprecos2());
     }
 
 }
