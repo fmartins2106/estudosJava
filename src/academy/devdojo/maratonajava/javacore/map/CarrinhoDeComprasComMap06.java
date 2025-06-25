@@ -1,6 +1,5 @@
 package academy.devdojo.maratonajava.javacore.map;
 
-import academy.devdojo.maratonajava.javacore.Interface.dominio.Produto19;
 import academy.devdojo.maratonajava.javacore.Interface.dominio.Produto45;
 
 import java.text.DecimalFormat;
@@ -9,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CarrinhoDeCompras06 {
+public class CarrinhoDeComprasComMap06 {
     private final Map<Produto45,Integer> carrinhoDeCompras = new LinkedHashMap<>();
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
