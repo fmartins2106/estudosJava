@@ -5,7 +5,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class ListaProdutos02 {
+public class ListaProdutos01B {
     private static List<ProdutoStrema01> produtosLoja = new ArrayList<>(List.of(
             new ProdutoStrema01("Chaleira Eletrica",100,120.23,Categoria.ELETRONICO),
             new ProdutoStrema01("Arroz branco 1kg",222,2.32,Categoria.ALIMENTO),
@@ -53,14 +53,14 @@ public class ListaProdutos02 {
         Map<Categoria,Map<Promocao01,List<ProdutoStrema01>>> colecao8 = produtosLoja.stream()
                 .collect(Collectors.groupingBy(
                         ProdutoStrema01::getCategoria,
-                        Collectors.groupingBy(ListaProdutos02::getPromocao01,Collectors.toList())
+                        Collectors.groupingBy(ListaProdutos01B::getPromocao01,Collectors.toList())
                 ));
         System.out.println(colecao8);;
 
         Map<Categoria,LinkedHashSet<Promocao01>> colecao9 = produtosLoja.stream()
                 .collect(Collectors.groupingBy(
                         ProdutoStrema01::getCategoria,
-                        Collectors.mapping(ListaProdutos02::getPromocao01,Collectors.toCollection(LinkedHashSet::new))));
+                        Collectors.mapping(ListaProdutos01B::getPromocao01,Collectors.toCollection(LinkedHashSet::new))));
         System.out.println(colecao9);;
 
 

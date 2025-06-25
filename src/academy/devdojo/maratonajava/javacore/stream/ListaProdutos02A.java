@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ListaProdutos01 {
-
-    private static List<ProdutoStrema01> produtosLoja = new ArrayList<>(List.of(
+public class ListaProdutos02A {
+    private static List<ProdutoStrema01> produtoLoja = new ArrayList<>(List.of(
             new ProdutoStrema01("Chaleira Eletrica",100,120.23,Categoria.ELETRONICO),
             new ProdutoStrema01("Arroz branco 1kg",222,2.32,Categoria.ALIMENTO),
             new ProdutoStrema01("Feijão Carioca 1kg",222,5.32,Categoria.ALIMENTO),
@@ -18,17 +17,16 @@ public class ListaProdutos01 {
             new ProdutoStrema01("Calça Jeans Masculina",2222,90.32,Categoria.VESTUARIO),
             new ProdutoStrema01("Liquidificador",322,122.52,Categoria.ELETRODOMESTICO),
             new ProdutoStrema01("Macarrão 500gr",222,2.12,Categoria.ALIMENTO)
-        ));
+    ));
+
     public static void main(String[] args) {
-
-
         Map<Categoria,List<ProdutoStrema01>> produtosCategoria = new HashMap<>();
         List<ProdutoStrema01> eletronico = new ArrayList<>();
         List<ProdutoStrema01> alimento = new ArrayList<>();
         List<ProdutoStrema01> vestuario = new ArrayList<>();
         List<ProdutoStrema01> eletrodomestico = new ArrayList<>();
 
-        for (ProdutoStrema01 produtoStrema01 : produtosLoja) {
+        for (ProdutoStrema01 produtoStrema01 : produtoLoja) {
             switch (produtoStrema01.getCategoria()){
                 case ALIMENTO -> alimento.add(produtoStrema01);
                 case VESTUARIO -> vestuario.add(produtoStrema01);
@@ -44,11 +42,8 @@ public class ListaProdutos01 {
 
         System.out.println(produtosCategoria);
 
-        Map<Categoria,List<ProdutoStrema01>> colecao = produtosLoja.stream().collect(Collectors.groupingBy(ProdutoStrema01::getCategoria));
+        Map<Categoria,List<ProdutoStrema01>> colecao = produtoLoja.stream().collect(Collectors.groupingBy(ProdutoStrema01::getCategoria));
         System.out.println(colecao);
+
     }
-
-
-
-
 }
