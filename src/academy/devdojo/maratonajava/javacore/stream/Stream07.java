@@ -125,7 +125,7 @@ public class Stream07 {
         produto19s.stream()
                 .sorted(Comparator.comparing(Produto19::getNome))
                 .forEach(produto19 -> { double total = produto19.getValor() * produto19.getQuantidade();
-                    System.out.println("Produto:"+produto19.getNome()+" |Valor total em estoque:R$"+ produto19.getValor());
+                    System.out.println("Produto:"+produto19.getNome()+" |Valor total em estoque:R$"+ total);
                 });
     }
 
@@ -246,6 +246,7 @@ public class Stream07 {
 
     public static void main(String[] args) {
         Stream07 stream07 = new Stream07();
+
 
         Produto19 produto1 = new Produto19(1,"Nome um","comida q",5.33,90,100);
         Produto19 produto2 = new Produto19(1,"Nome dois","comida a",3.33,200,300);
