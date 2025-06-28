@@ -19,6 +19,8 @@ public class ListaProdutos02B {
     ));
 
 
+
+
     //    Encapsula a regra de promoção com base no preço para reutilização no código.
     private static Promocao01 getPromocao02(ProdutoStrema01 produtoStrema01){
         return produtoStrema01.getPreco() < 6 ? Promocao01.PROMOCAO : Promocao01.PRECO_NORMAL;

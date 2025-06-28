@@ -44,8 +44,13 @@ public class ListaProdutos01A {
 
         System.out.println(produtosCategoria);
 
-        Map<Categoria,List<ProdutoStrema01>> colecao = produtosLoja.stream().collect(Collectors.groupingBy(ProdutoStrema01::getCategoria));
+
     }
+    public static Map<Categoria, List<ProdutoStrema01>> agruparPorCategoria(List<ProdutoStrema01> produtos) {
+        return produtos.stream()
+                .collect(Collectors.groupingBy(ProdutoStrema01::getCategoria));
+    }
+
 
 
 
