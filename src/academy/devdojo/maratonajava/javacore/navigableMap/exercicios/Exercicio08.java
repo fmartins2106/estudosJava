@@ -75,8 +75,10 @@ public class Exercicio08 {
                 .stream()
                 .filter(consulta -> consulta.getKey().equals(horario))
                 .findFirst()
-                .ifPresentOrElse(consuta -> System.out.println("Consulta removida com sucesso.")
-                        , () -> System.out.println("Consulta não encontrada."));
+                .ifPresentOrElse(consuta ->{
+                    consultasRegistradas.remove(consuta.getKey(),consuta.getValue());
+                    System.out.println("Consulta removida com sucesso.");
+                        }, () -> System.out.println("Consulta não encontrada."));
     }
 
     public boolean consultaJaexiste(LocalDateTime horario){
@@ -89,7 +91,7 @@ public class Exercicio08 {
 
     public void proximasConsultas(LocalDateTime horario){
         consultasRegistradas.headMap(horario,false)
-                .forEach((dateTime, consultavel01) -> System.out.println());
+                .forEach((dateTime, consultavel01) -> System.out.println("Horário:"+dateTime+" |Dados:"+consultavel01));
     }
 
     public void consultaAnteriores(LocalDateTime horario){
