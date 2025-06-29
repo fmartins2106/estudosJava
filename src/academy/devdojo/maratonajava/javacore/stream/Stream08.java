@@ -18,8 +18,10 @@ public class Stream08 {
         produto19s.stream()
                 .filter(produto19 -> produto19.getNome().equalsIgnoreCase(nome))
                 .findFirst()
-                .ifPresentOrElse(produto19 -> System.out.println("Produto excluido com sucesso.")
-                        , () -> System.out.println("Produt não encontrado."));
+                .ifPresentOrElse(produto19 -> {
+                    produto19s.remove(produto19);
+                    System.out.println("Produto removido com sucesso.");
+                }, ()-> System.out.println("Nenhum produto foi encontrado."));
     }
 
     public void excluirProduto2(String nome){
