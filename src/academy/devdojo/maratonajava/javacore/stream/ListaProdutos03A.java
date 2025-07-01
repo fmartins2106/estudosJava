@@ -30,35 +30,6 @@ public class ListaProdutos03A {
         return produtosPorCategoria;// retorna o map com os produtos agrupados
     }
 
-
-//    public static Map<Categoria03,List<ProdutoStream03>> agruparPorCategoria(){
-//        Map<Categoria03,List<ProdutoStream03>> produtosAgrupadosCategoria = new HashMap<>();
-//        for (ProdutoStream03 produtoStream03 : produtosLoja) {
-//            produtosAgrupadosCategoria.computeIfAbsent(produtoStream03.getCategoria03(),k-> new ArrayList<>())
-//                    .add(produtoStream03);
-//        }
-//        return produtosAgrupadosCategoria;
-//    }
-//
-//    public static void exibirInfoProdutosCategoria(Map<Categoria03,List<ProdutoStream03>> agrupados){
-//        for (Map.Entry<Categoria03,List<ProdutoStream03>> entry : agrupados.entrySet()){
-//            System.out.println("Categoria:"+entry.getKey());
-//            for (ProdutoStream03 produtoStream03 : produtosLoja) {
-//                System.out.println("Produto:"+produtoStream03.getNome());
-//            }
-//        }
-//    }
-//
-//    public static void processarAgrupamentoCategoria(){
-//        Map<Categoria03,List<ProdutoStream03>> agrupados = agruparPorCategoria();
-//        exibirInfoProdutosCategoria(agrupados);
-//    }
-//
-//    public static Map<Categoria03,List<ProdutoStream03>> produtosAgrupadosCategoria(){
-//        return produtosLoja.stream().collect(Collectors.groupingBy(ProdutoStream03::getCategoria03));
-//    }
-
-
     // Metodo que imprime os produtos agruapdos por categoria
     public static void exibirProdutosAgrupados(Map<Categoria03,List<ProdutoStream03>> agrupados){
         for (Map.Entry<Categoria03,List<ProdutoStream03>> entry : agrupados.entrySet()){ // percorre cada categoria no map
