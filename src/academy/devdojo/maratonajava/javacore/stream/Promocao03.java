@@ -10,10 +10,9 @@ public enum Promocao03 {
         this.descricao = descricao;
     }
 
-    public String getDescricao() {
+    @Override
+    public String toString(){
         return descricao;
     }
-
-
 
 }
