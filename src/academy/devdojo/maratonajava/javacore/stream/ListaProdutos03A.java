@@ -52,6 +52,6 @@ public class ListaProdutos03A {
         return produtosLoja.stream()
                 .collect(Collectors.groupingBy(ProdutoStream03::getCategoria03));
     }
-    
+
 
 }

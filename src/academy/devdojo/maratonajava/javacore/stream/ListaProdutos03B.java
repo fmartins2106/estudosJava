@@ -18,13 +18,22 @@ public class ListaProdutos03B {
             new ProdutoStream03("Liquidificador",322,122.52,Categoria03.ELETRODOMESTICO),
             new ProdutoStream03("Macarrão 500gr",222,2.12,Categoria03.ALIMENTO)
     ));
-    private static Promocao03 getPromocao3(ProdutoStream03 produtoStream03){
-        return produtoStream03.getPreco() < 4 ? Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL;
+    public static Promocao03 getPromocao(ProdutoStream03 produtoStream03){
+        return produtoStream03.getPreco() < 3 ? Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL;
     }
 
-    public static Map<Promocao03,List<ProdutoStream03>> agruparPromocao(List<ProdutoStream03> produtos){
-        return produtos.stream().collect(Collectors
-                .groupingBy(produtoStream03 -> produtoStream03.getPreco() < 5 ? Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL));
+    public static Map<Promocao03,List<ProdutoStream03>> agruparPorPromocao(List<ProdutoStream03> agrupados){
+            return agrupados.stream()
+                    .collect(Collectors.groupingBy(produtoStream03 -> produtoStream03.getPreco() < 5 ?
+                            Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL));
+    }
+
+    public static Map<Categoria03,Map<Promocao03,List<ProdutoStream03>>> agruparPorCategoriaEPromocao(List<ProdutoStream03> produtos){
+        return produtos.stream()
+                .collect(Collectors.groupingBy(ProdutoStream03::getCategoria03,
+                        Collectors.groupingBy(produtoStream03 -> produtoStream03.getPreco() < 6 ?
+                                Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL)));
     }
 
 }
+
