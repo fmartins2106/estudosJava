@@ -41,62 +41,47 @@ public class ListaProdutos03B {
                 Collectors.counting()));
      }
 //    ________________________________________________________________________________________________________________
-    public static Map<Categoria03,List<ProdutoStream03>> agruparPorCategoria(){
-        return produtosLoja.stream()
-                .collect(Collectors
-                        .groupingBy(ProdutoStream03::getCategoria03));
-    }
+     public static Map<Categoria03,List<ProdutoStream03>> agrupandoPorCategoria(){
+        return produtosLoja.stream().collect(Collectors.groupingBy(
+                ProdutoStream03::getCategoria03));
+     }
 
-    public static Promocao03 getPromocao2(ProdutoStream03 produtoStream03){
-        return produtoStream03.getPreco() < 6 ? Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL;
-    }
-
-    public static Map<Promocao03,List<ProdutoStream03>> agruparPorPromocao2(List<ProdutoStream03> produtos){
-        return produtos.stream().collect(Collectors
-                .groupingBy(produtoStream03 -> produtoStream03.getPreco() < 6 ?
+     public static Map<Promocao03,List<ProdutoStream03>> agruparPorPromocao2(List<ProdutoStream03> produtos){
+        return produtosLoja.stream().collect(Collectors.groupingBy(
+                produtoStream03 -> produtoStream03.getPreco() < 6 ?
                         Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL));
-    }
+     }
 
-    public static Map<Categoria03,Map<Promocao03,List<ProdutoStream03>>> agruparPorCategoriaEPromocoa(List<ProdutoStream03> produtos){
+     public static Map<Categoria03,Map<Promocao03,List<ProdutoStream03>>> agruparPorCategoriaPromocao(List<ProdutoStream03> produtos){
         return produtos.stream().collect(Collectors
                 .groupingBy(ProdutoStream03::getCategoria03,
-                        Collectors.groupingBy(produto -> produto.getPreco() < 6 ?
-                                Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL)));
-    }
+                        Collectors.groupingBy(produto
+                                -> produto.getPreco() < 6 ? Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL)));
+     }
 
-    public static Map<Categoria03,Long> contagemProdutosCategoria2(){
-        return produtosLoja.stream().collect(Collectors
+     public static Map<Categoria03,Long> contandoProdutosCategoria2(List<ProdutoStream03> produto){
+        return produto.stream().collect(Collectors
                 .groupingBy(ProdutoStream03::getCategoria03,Collectors.counting()));
-    }
+     }
 
-    public static Map<Promocao03,Long> contagemProdutosPromocao(){
-        return produtosLoja.stream().collect(Collectors
-                .groupingBy(produto -> produto.getPreco() < 6 ?
-                        Promocao03.PROMOCAO : Promocao03.PRECO_NORMAL,Collectors.counting()));
-    }
+     public static Map<Categoria03,Optional<ProdutoStream03>> maiorPrecoCategoria3(List<ProdutoStream03> produto){
+        return produto.stream().collect(Collectors.groupingBy(ProdutoStream03::getCategoria03,
+                Collectors.maxBy(Comparator.comparing(ProdutoStream03::getPreco))));
+     }
 
-    public static Map<Categoria03,Long> contagemProdutosCategoria3(List<ProdutoStream03> produtos){
+     public static Map<Categoria03,DoubleSummaryStatistics> estatisticasCategoria(List<ProdutoStream03> produtos){
         return produtos.stream().collect(Collectors
-                .groupingBy(ProdutoStream03::getCategoria03, Collectors.counting()));
-    }
-
-    public static Map<Categoria03,Optional<ProdutoStream03>> maisCaroPorCategoria2(List<ProdutoStream03> produtos){
-        return produtos.stream().collect(Collectors.groupingBy(
-                ProdutoStream03::getCategoria03,Collectors.maxBy(Comparator.comparing(ProdutoStream03::getPreco))));
-    }
+                .groupingBy(ProdutoStream03::getCategoria03,
+                        Collectors.summarizingDouble(ProdutoStream03::getPreco)));
+     }
 
 
-    public static Map<Categoria03,Optional<ProdutoStream03>> maisCaroPorCategoria3(List<ProdutoStream03> produtos){
+     public static Map<Categoria03,Optional<ProdutoStream03>> getMaiorPrecoCategoria(List<ProdutoStream03> produtos){
         return produtos.stream().collect(Collectors
                 .groupingBy(ProdutoStream03::getCategoria03,
                         Collectors.maxBy(Comparator.comparing(ProdutoStream03::getPreco))));
-    }
+     }
 
-
-    public static Map<Categoria03,DoubleSummaryStatistics> estatisticasPorCategoria3(List<ProdutoStream03> produtos){
-        return produtos.stream().collect(Collectors.groupingBy(ProdutoStream03::getCategoria03,
-                Collectors.summarizingDouble(ProdutoStream03::getPreco)));
-    }
 
 
      //________________________________________________________________________________________________________
@@ -167,10 +152,10 @@ public class ListaProdutos03B {
         maisCaroPorCategoria(produtosLoja).forEach((categoria03, produtoStream03) ->
                 System.out.println("Categoria:"+categoria03+" |Nome:"+produtoStream03.getNome()+ "|Preço:R$"+produtoStream03.getPreco()));
 
-        System.out.println(contagemProdutosPromocao());
+        System.out.println(contandoProdutosCategoria2(produtosLoja));
 
         System.out.println("_______________________________");
-        System.out.println(maisCaroPorCategoria2(produtosLoja));
+        System.out.println(maisCaroPorCategoriaComOptional(produtosLoja));
         System.out.println("++++++++++++++++++++++++++++++++++++++");
         System.out.println(maisCaroPorCategoria(produtosLoja));
 
