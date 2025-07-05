@@ -110,6 +110,7 @@ public class Stream09 {
                 .forEach(System.out::println);
     }
 
+
     public void  addProduto(Produto19 produto19){
         produto19s.add(produto19);
     }
