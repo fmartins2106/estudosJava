@@ -157,14 +157,4 @@ public class Stream10 {
                 .ifPresentOrElse(System.out::println, () -> System.out.println("Produto não encontrado."));
     }
 
-
-
-
-
-
-
-
-
-
-
 }
