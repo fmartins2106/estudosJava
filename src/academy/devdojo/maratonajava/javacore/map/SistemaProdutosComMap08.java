@@ -46,4 +46,39 @@ public class SistemaProdutosComMap08 {
                 .sum();
     }
 
+    public void removerProduto(String nome){
+        dadosCadastroProdutos.entrySet().stream()
+                .filter(produtos -> produtos.getValue().getNome().equalsIgnoreCase(nome))
+                .findFirst()
+                .ifPresentOrElse(dadosProdutos -> {
+                    dadosCadastroProdutos.remove(dadosProdutos.getKey(),dadosProdutos.getValue());
+                    System.out.println("Prooduto removido com sucesso.");
+                }, () -> System.out.println("Produto não encontrado."));
+    }
+
+    public void removerProduto2(String nome){
+        boolean produtoEncontrado = dadosCadastroProdutos.entrySet()
+                .removeIf(dadosProduto05Entry ->
+                        dadosProduto05Entry.getKey().equalsIgnoreCase(nome));
+        if (!produtoEncontrado){
+            System.out.println("Produto não encontrado.");
+            return;
+        }
+        System.out.println("Produto removido com sucesso.");
+    }
+
+    public boolean alterarDadosProdutos(String nome, double novoPreco, int novaQuantidade, String novaDescricao){
+        return dadosCadastroProdutos.computeIfPresent(nome,(k,v) ->{
+            v.setPreco(novoPreco);
+            v.setQuantidade(novaQuantidade);
+            v.setDescricao(novaDescricao);
+            return v;
+        })!= null;
+    }
+
+    
+
+
+
+
 }
