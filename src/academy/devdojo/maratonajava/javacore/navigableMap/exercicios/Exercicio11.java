@@ -131,5 +131,5 @@ public class Exercicio11 {
         registroConsultas.tailMap(horario,false)
                 .entrySet().forEach(System.out::println);
     }
-    
+
 }
