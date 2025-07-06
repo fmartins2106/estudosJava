@@ -136,7 +136,7 @@ public class Stream11 {
                 .max(Comparator.comparing(Produto19::getValor))
                 .ifPresentOrElse(System.out::println, () -> System.out.println("Produto não encontrado."));
     }
-    
+
     public void addProduto(Produto19 produto19){
         produto19s.add(produto19);
     }

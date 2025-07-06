@@ -65,7 +65,4 @@ public class ListaProdutos04 {
         agruparPorMetodoAuxiliar(produtosLoja).forEach((categoria03, promocao03ListMap) ->
                 System.out.println("Categoria:"+categoria03+" |Produto:"+promocao03ListMap));
     }
-
-
-
 }
