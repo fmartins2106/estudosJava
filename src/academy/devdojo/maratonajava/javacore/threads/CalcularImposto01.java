@@ -2,7 +2,7 @@ package academy.devdojo.maratonajava.javacore.threads;
 
 import java.util.concurrent.Callable;
 
-public class CalcularImposto01 implements Callable<Double> {
+public class CalcularImposto01 implements Callable<Double>{
     private final double valor;
 
     public CalcularImposto01(double valor) {
@@ -11,8 +11,8 @@ public class CalcularImposto01 implements Callable<Double> {
 
     @Override
     public Double call() throws Exception {
-        Thread.sleep(1500); //Simular tempo de cáculo.
-        return valor * 0.15; // imposto de 15%
+        Thread.sleep(1500);
+        return valor * 0.15;
     }
 }
 /**
