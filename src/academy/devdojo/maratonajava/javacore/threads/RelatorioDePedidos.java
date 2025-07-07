@@ -15,20 +15,18 @@ public class RelatorioDePedidos {
     public SynchronousQueue void salvarRelatorio(Pedido01 pedido01, double imposto, double frete, double total){
         try {
             Path pasta = Paths.get("relatorio");
-            if (Files.notExists(pasta)){
+            Files.notExists(pasta){
                 Files.createDirectories(pasta);
             }
             Path arquivo = pasta.resolve("relatorio_pedido.txt");
             String timeStamp = LocalDateTime.now().format(DateTimeFormatter
                     .ofPattern("dd/MM/yyyy HH:mm:ss"));
             try (BufferedWriter writer = Files.newBufferedWriter(arquivo,StandardOpenOption.CREATE,
-                    StandardOpenOption.APPEND);PrintWriter out = new PrintWriter(writer)) {
-                         
-
-
+                    StandardOpenOption.APPEND);PrintWriter out = new PrintWriter(writer)){
+                
             }
 
-        }catch ()
+        }
     }
 
 
