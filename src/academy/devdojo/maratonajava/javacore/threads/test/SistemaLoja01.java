@@ -1,4 +1,8 @@
-package academy.devdojo.maratonajava.javacore.threads;
+package academy.devdojo.maratonajava.javacore.threads.test;
+
+import academy.devdojo.maratonajava.javacore.threads.dominio.ConsumidorDePedidos;
+import academy.devdojo.maratonajava.javacore.threads.dominio.Pedido01;
+import academy.devdojo.maratonajava.javacore.threads.dominio.ProdutorDePedidos01;
 
 import java.util.concurrent.*;
 

@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.javacore.threads;
+package academy.devdojo.maratonajava.javacore.threads.dominio;
 
 import academy.devdojo.maratonajava.javacore.threads.validacao.ValidacaoClientePedido01;
 import academy.devdojo.maratonajava.javacore.threads.validacao.ValidacaoIdPedido01;

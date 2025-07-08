@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.javacore.threads;
+package academy.devdojo.maratonajava.javacore.threads.dominio;
 
 import java.io.*;
 import java.nio.file.Files;

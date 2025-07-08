@@ -1,9 +1,9 @@
-package academy.devdojo.maratonajava.javacore.threads;
+package academy.devdojo.maratonajava.javacore.threads.dominio;
 
 import java.util.concurrent.Callable;
 
 public class CalcularFrete01 implements Callable<Double> {
-    private final Double valor;
+    private final double valor;
 
     public CalcularFrete01(Double valor) {
         this.valor = valor;
