@@ -1,5 +1,7 @@
 package academy.devdojo.maratonajava.javacore.threads.dominio;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -18,7 +20,9 @@ public class ProodutorDePedidos05 implements Runnable{
         try {
             while (!Thread.currentThread().isInterrupted()){
                 String cliente = clientes.get(random.nextInt(clientes.size()));
-                double valor = 50 + (random.nextDouble() * 450);
+                double valorBruto = 50 + (random.nextDouble() * 450);
+                double valor = new BigDecimal(valorBruto).setScale(2, RoundingMode.HALF_UP)
+                        .doubleValue();
                 Pedido05 pedido05 = new Pedido05(cliente,valor);
                 filaPedido.put(pedido05);
                 System.out.println("Novo pedido adicionado:"+pedido05);
