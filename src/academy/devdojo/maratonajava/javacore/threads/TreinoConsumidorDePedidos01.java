@@ -42,6 +42,7 @@ public class TreinoConsumidorDePedidos01 implements Runnable{
                 Thread.currentThread().interrupt();
             }catch (ExecutionException e){
                 System.out.println("Erro na execução.");
+                Thread.currentThread().interrupt();
             }
         }
     }
