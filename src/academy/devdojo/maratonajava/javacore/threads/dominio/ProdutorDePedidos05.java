@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 
-public class ProodutorDePedidos05 implements Runnable{
+public class ProdutorDePedidos05 implements Runnable{
     public final BlockingQueue<Pedido05> filaPedido;
     public final List<String> clientes = Arrays.asList("Ana","Maria","Joana","Fernando","Daisy","Marta","Manuel");
     public Random random = new Random();
 
-    public ProodutorDePedidos05(BlockingQueue<Pedido05> filaPedido) {
+    public ProdutorDePedidos05(BlockingQueue<Pedido05> filaPedido) {
         this.filaPedido = filaPedido;
     }
 
@@ -30,7 +30,7 @@ public class ProodutorDePedidos05 implements Runnable{
             }
         }catch (InterruptedException e){
             System.out.println("Produtor interrompido.");
-            Thread.currentThread().isInterrupted();
+            Thread.currentThread().interrupt();
         }
     }
 
