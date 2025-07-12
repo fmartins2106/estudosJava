@@ -17,7 +17,8 @@ public class SistemaLoja06 {
         ExecutorService executorSistema = Executors.newFixedThreadPool(2);
 
         executorSistema.execute(new ProdutorDePedidos06(filaPedido));
-        executorCalculo.execute(new ConsumidorDePedidos06(filaPedido,executorCalculo));
+        executorSistema.execute(new ConsumidorDePedidos06(filaPedido, executorCalculo));
+
 
         Thread.sleep(20000);
 
