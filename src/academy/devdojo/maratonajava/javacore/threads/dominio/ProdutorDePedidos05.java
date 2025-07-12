@@ -17,21 +17,21 @@ public class ProdutorDePedidos05 implements Runnable{
     }
 
     public void run(){
-        try {
             while (!Thread.currentThread().isInterrupted()){
-                String cliente = clientes.get(random.nextInt(clientes.size()));
-                double valorBruto = 50 + (random.nextDouble() * 450);
-                double valor = new BigDecimal(valorBruto).setScale(2, RoundingMode.HALF_UP)
-                        .doubleValue();
-                Pedido05 pedido05 = new Pedido05(cliente,valor);
-                filaPedido.put(pedido05);
-                System.out.println("Novo pedido adicionado:"+pedido05);
-                Thread.sleep(1000+ random.nextInt(2000));
+                try {
+                    String cliente = clientes.get(random.nextInt(clientes.size()));
+                    double valorBruto = 50 + (random.nextDouble() * 450);
+                    double valor = new BigDecimal(valorBruto).setScale(2, RoundingMode.HALF_UP)
+                            .doubleValue();
+                    Pedido05 pedido05 = new Pedido05(cliente,valor);
+                    filaPedido.put(pedido05);
+                    System.out.println("Novo pedido adicionado:"+pedido05);
+                    Thread.sleep(1000+ random.nextInt(2000));
+                }catch (InterruptedException e){
+                    System.out.println("Produtor interrompido.");
+                    Thread.currentThread().interrupt();
+                }
             }
-        }catch (InterruptedException e){
-            System.out.println("Produtor interrompido.");
-            Thread.currentThread().interrupt();
-        }
     }
 
 

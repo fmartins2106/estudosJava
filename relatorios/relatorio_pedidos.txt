@@ -14,3 +14,12 @@
 [10/07/2025 11:07:53] - ID Pedido:#6 |Cliente:Manuel |Valor:R$261,55 |Imposto:R$39,23 |Frete:R$33,08 |Total:R$333,86
 [10/07/2025 11:07:56] - ID Pedido:#7 |Cliente:Ana |Valor:R$205,37 |Imposto:R$30,81 |Frete:R$30,27 |Total:R$266,44
 [10/07/2025 11:07:59] - ID Pedido:#8 |Cliente:Manuel |Valor:R$395,21 |Imposto:R$59,28 |Frete:R$39,76 |Total:R$494,25
+[12/07/2025 10:54:41] - ID Pedido:#1 |Cliente:Maria |Valor:R$102,34 |Imposto:R$15,35 |Frete:R$25,12 |Total:R$142,81
+[12/07/2025 10:54:42] - ID Pedido:#2 |Cliente:Maria |Valor:R$344,61 |Imposto:R$51,69 |Frete:R$37,23 |Total:R$433,53
+[12/07/2025 10:54:45] - ID Pedido:#3 |Cliente:Marta |Valor:R$358,68 |Imposto:R$53,80 |Frete:R$37,93 |Total:R$450,42
+[12/07/2025 10:54:46] - ID Pedido:#4 |Cliente:Fernando |Valor:R$496,48 |Imposto:R$74,47 |Frete:R$44,82 |Total:R$615,78
+[12/07/2025 10:54:48] - ID Pedido:#5 |Cliente:Maria |Valor:R$461,76 |Imposto:R$69,26 |Frete:R$43,09 |Total:R$574,11
+[12/07/2025 10:54:50] - ID Pedido:#6 |Cliente:Marta |Valor:R$325,72 |Imposto:R$48,86 |Frete:R$36,29 |Total:R$410,86
+[12/07/2025 10:54:53] - ID Pedido:#7 |Cliente:Ana |Valor:R$341,66 |Imposto:R$51,25 |Frete:R$37,08 |Total:R$429,99
+[12/07/2025 10:54:55] - ID Pedido:#8 |Cliente:Marta |Valor:R$400,36 |Imposto:R$60,05 |Frete:R$40,02 |Total:R$500,43
+[12/07/2025 10:54:58] - ID Pedido:#9 |Cliente:Manuel |Valor:R$445,05 |Imposto:R$66,76 |Frete:R$42,25 |Total:R$554,06

@@ -16,8 +16,8 @@ public class ConsumidroDePedidos05 implements Runnable{
 
     public void run(){
         RelatorioDePedidos05 relatorio = new RelatorioDePedidos05();
-        try {
             while (!Thread.currentThread().isInterrupted()){
+                try {
                 Pedido05 pedido05 = filaPedido.take();
                 System.out.println("Processando:"+pedido05);
                 Future<Double> impostoFuturo = executor.submit(new CalcularImposto04(pedido05.getValor()));
@@ -28,16 +28,17 @@ public class ConsumidroDePedidos05 implements Runnable{
 
                 double total = imposto + frete + pedido05.getValor();
 
-                System.out.printf("Pedido: #ID:%d |Cliente:%s |Valor:R$%.2f |Imposto:R$%.2f |Frete:R$%.2f |Total:R$%.2f\n\n",
+                System.out.printf("#ID:%d |Cliente:%s |Valor:R$%.2f |Imposto:R$%.2f |Frete:R$%.2f |Total:R$%.2f\n\n",
                         pedido05.getId(),pedido05.getCliente(),pedido05.getValor(),imposto,frete,total);
                 relatorio.gerarRelatorioPedidos(pedido05,imposto,frete,total);
-            }
 
-        }catch (InterruptedException e){
-            System.out.println("Erro no consumo do pedido."+e.getMessage());
-        }catch (ExecutionException e){
-            System.out.println("Erro de execução.");
+            }catch (InterruptedException e){
+                System.out.println("Erro no consumo do pedido."+e.getMessage());
+            }catch (ExecutionException e){
+                System.out.println("Erro de execução.");
+            }
         }
+
 
     }
 

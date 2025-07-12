@@ -31,7 +31,7 @@ public class TreinoProdutorDePedidos01 implements Runnable{
                 Thread.sleep(1000 + random.nextInt(2000));
             }catch (InterruptedException e){
                 System.out.println("Produtor Interrompido.");
-                Thread.sleep();
+                Thread.currentThread().interrupt();
             }
         }
     }
