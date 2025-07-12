@@ -26,13 +26,12 @@ public class TreinoProdutosDePedidos02 implements Runnable{
                 double valor = new BigDecimal(valorBruto).setScale(2, RoundingMode.HALF_UP)
                         .doubleValue();
                 Pedido05 pedido05 = new Pedido05(cliente,valor);
+                filaPedido.put(pedido05);
                 System.out.println("Novo pedido adicionado.");
                 Thread.sleep(1000 + random.nextInt(2000));
             }catch (InterruptedException e){
                 System.out.println("Erro no produtor.");
                 Thread.currentThread().interrupt();
-            }catch (Exception e){
-                System.out.println("Erro inesperado no produtor:"+e.getMessage());
             }
         }
     }

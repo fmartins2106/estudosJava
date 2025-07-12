@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.javacore.threads.validacao;
+package academy.devdojo.maratonajava.javacore.threads;
 
 import academy.devdojo.maratonajava.javacore.threads.dominio.CalcularFrete05;
 import academy.devdojo.maratonajava.javacore.threads.dominio.CalcularImposto05;
