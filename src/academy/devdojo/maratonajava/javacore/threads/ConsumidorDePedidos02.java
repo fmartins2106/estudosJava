@@ -30,7 +30,7 @@ public class ConsumidorDePedidos02 implements Runnable{
 
                 double total = pedido06.getValor() + imposto + frete;
 
-                System.out.printf("#ID:%d |Cliente:%s |Valor:R$%.2f |Imposto:R$%.2f |Frete:R$%.2f |Total:R$%.2f\n",
+                System.out.printf("#ID:%d |Cliente:%s |Valor:R$%.2f |Imposto:R$%.2f |Frete:R$%.2f |Total:R$%.2f\n\n",
                         pedido06.getId(),pedido06.getCliente(),pedido06.getValor(),imposto,frete,total);
 
                 relatiorio.gerarRelatorioPedidos(pedido06,imposto,frete,total);
