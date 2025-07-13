@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.javacore.threads.test;
+package academy.devdojo.maratonajava.javacore.threads;
 
 import academy.devdojo.maratonajava.javacore.threads.dominio.ConsumidorDePedidos06;
 import academy.devdojo.maratonajava.javacore.threads.dominio.Pedido06;
@@ -7,21 +7,20 @@ import academy.devdojo.maratonajava.javacore.threads.dominio.ProdutorDePedidos06
 import java.sql.Time;
 import java.util.concurrent.*;
 
-public class SistemaLoja06 {
+public class TreinoSistemaLoja04 {
+
     public static void main(String[] args) throws InterruptedException{
         BlockingQueue<Pedido06> filaPedido = new LinkedBlockingQueue<>();
         int nThreads = Runtime.getRuntime().availableProcessors();
-        System.out.println("Núcleos disponíveis:"+nThreads);
+        System.out.println("Núcles disponíveis:"+nThreads);
 
-        ExecutorService executorCalculo = Executors.newFixedThreadPool(nThreads);
-        ExecutorService executorSistema = Executors.newFixedThreadPool(2);
+        ExecutorService executorSistema = Executors.newFixedThreadPool(nThreads);
+        ExecutorService executorCalculo = Executors.newFixedThreadPool(2);
 
         executorSistema.execute(new ProdutorDePedidos06(filaPedido));
-        executorSistema.execute(new ConsumidorDePedidos06(filaPedido, executorCalculo));
-        
-        Thread.sleep(20000);
+        executorSistema.execute(new ConsumidorDePedidos06(filaPedido,executorCalculo));
 
-        System.out.println("Encerrar o sistema.");
+        System.out.println("Encerrando sistema.");
 
         executorSistema.shutdownNow();
         executorCalculo.shutdownNow();
@@ -29,6 +28,8 @@ public class SistemaLoja06 {
         executorCalculo.awaitTermination(5, TimeUnit.SECONDS);
         executorSistema.awaitTermination(5, TimeUnit.SECONDS);
 
-        System.out.println("Sistema finalizado.");
+        System.out.println("Finalizando sistema.");
+
+
     }
 }
