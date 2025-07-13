@@ -124,7 +124,7 @@ public class Stream12 {
                 .max(Comparator.comparing(Produto19::getValor))
                 .ifPresentOrElse(System.out::println, () -> System.out.println("Produto não encontrado."));
     }
-    
+
     public static void main(String[] args) {
         Stream12 stream12 = new Stream12();
         Produto19 produto19 = new Produto19(1,"pipoca caramelizada","eletronico",23.33,2222,2000);
@@ -139,5 +139,4 @@ public class Stream12 {
         System.out.println("_____________________________");
         stream12.listarSomenteNomeValoresProduto();
     }
-
 }
