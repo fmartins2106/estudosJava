@@ -40,7 +40,7 @@ public class CarrinhoDeComprasComMap10 {
             Produto45 produto45 = entry.getKey();
             int quantidade = entry.getValue();
             double subTotal = produto45.getPreco() * quantidade;
-            System.out.println(i++" - Produto:"+produto45.getNome()+" |Quantidade:"+quantidade+" |Valor:R$"+produto45.getPreco());
+            System.out.println(i+" - Produto:"+produto45.getNome()+" |Quantidade:"+quantidade+" |Valor:R$"+produto45.getPreco());
             i++;
             total += subTotal;
         }
