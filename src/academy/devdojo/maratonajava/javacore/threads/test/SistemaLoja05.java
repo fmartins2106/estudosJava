@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.javacore.threads.test;
 
-import academy.devdojo.maratonajava.javacore.threads.dominio.ConsumidroDePedidos05;
+import academy.devdojo.maratonajava.javacore.threads.dominio.ConsumidorDePedidos05;
 import academy.devdojo.maratonajava.javacore.threads.dominio.Pedido05;
 import academy.devdojo.maratonajava.javacore.threads.dominio.ProdutorDePedidos05;
 
@@ -16,7 +16,7 @@ public class SistemaLoja05 {
         ExecutorService executorSistema = Executors.newFixedThreadPool(2);
 
         executorSistema.execute(new ProdutorDePedidos05(filaPedido));
-        executorCalculo.execute(new ConsumidroDePedidos05(filaPedido,executorCalculo));
+        executorCalculo.execute(new ConsumidorDePedidos05(filaPedido,executorCalculo));
 
         Thread.sleep(20000);
 

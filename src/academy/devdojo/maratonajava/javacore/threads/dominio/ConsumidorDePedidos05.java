@@ -5,11 +5,11 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
-public class ConsumidroDePedidos05 implements Runnable{
+public class ConsumidorDePedidos05 implements Runnable{
     public final BlockingQueue<Pedido05> filaPedido;
     public final ExecutorService executor;
 
-    public ConsumidroDePedidos05(BlockingQueue<Pedido05> filaPedido, ExecutorService executor) {
+    public ConsumidorDePedidos05(BlockingQueue<Pedido05> filaPedido, ExecutorService executor) {
         this.filaPedido = filaPedido;
         this.executor = executor;
     }
