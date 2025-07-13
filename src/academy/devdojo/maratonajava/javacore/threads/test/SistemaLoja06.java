@@ -18,7 +18,7 @@ public class SistemaLoja06 {
 
         executorSistema.execute(new ProdutorDePedidos06(filaPedido));
         executorSistema.execute(new ConsumidorDePedidos06(filaPedido, executorCalculo));
-        
+
         Thread.sleep(20000);
 
         System.out.println("Encerrar o sistema.");

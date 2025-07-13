@@ -32,8 +32,8 @@ public abstract class ProdutoBase34 implements Produtos34 {
     }
 
     public static void validacaoPreco(double preco){
-        if (preco < PrecoProduto45.MENOR_PRECO_PRODUTO){
-            throw new PrecoProduto34();
+        if (preco < PrecoProdutoBase34.MENOR_PRECO){
+            throw new PrecoProdutoBase34();
         }
     }
 
