@@ -17,7 +17,6 @@ public class SistemaLoja08 {
         ExecutorService executorCalculo = Executors.newFixedThreadPool(nThread);
         ExecutorService executorSistema = Executors.newFixedThreadPool(2);
 
-
         executorSistema.execute(new ProdutorDePedidos08(filaPedido));
         executorSistema.execute(new ConsumidorDePedidos08(filaPedido,executorCalculo));
 
@@ -27,7 +26,6 @@ public class SistemaLoja08 {
         executorSistema.shutdownNow();
 
         System.out.println("Sistema encerrado.");
-
 
 
         executorCalculo.awaitTermination(5, TimeUnit.SECONDS);
