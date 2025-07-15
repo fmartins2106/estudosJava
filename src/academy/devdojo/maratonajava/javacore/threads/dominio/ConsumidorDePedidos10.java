@@ -28,7 +28,6 @@ public class ConsumidorDePedidos10 implements Runnable{
 
                 System.out.printf("#ID:%d |Cliente:%s |Valor:R$%.2f |Imposto:R$%.2f |Frete:R$%.2f |Total:R$%.2f\n\n",
                         pedido10.getId(),pedido10.getCliente(),pedido10.getValor(),imposto,frete,total);
-                ;
 
                 relatorioDePedidos10.gerarRelatorio(pedido10,imposto,frete,total);
 

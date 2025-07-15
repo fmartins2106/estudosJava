@@ -16,7 +16,7 @@ public class RelatorioDePedidos11 {
 
     public synchronized void gerarRelatorio(Pedido11 pedido11, BigDecimal imposto, BigDecimal frete, BigDecimal total){
         try {
-            Path pasta = Paths.get("relatoriosDePedidos");
+            Path pasta = Paths.get("relatorio");
             if (Files.notExists(pasta)){
                 Files.createFile(pasta);
             }

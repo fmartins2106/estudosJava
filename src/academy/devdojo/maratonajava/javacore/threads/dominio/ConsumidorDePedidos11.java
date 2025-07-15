@@ -27,10 +27,13 @@ public class ConsumidorDePedidos11 implements Runnable{
                 BigDecimal imposto = impostoFuturo.get();
                 BigDecimal frete = freteFuturo.get();
 
+                BigDecimal total = pedido11.getValor().add(imposto).add(frete);
+
                 System.out.printf("#ID:%d |Cliente:%s |Valor:R$%.2f |Imposto:R$%.2f |Frete:R$%.2f |Total:R$%.2f\n\n",
-                        pedido11.getId(),pedido11.getCliente(),pedido11.getValor(),imposto,frete,imposto);
+                        pedido11.getId(),pedido11.getCliente(),pedido11.getValor(),imposto,frete,total);
 
                 relatorioDePedidos11.gerarRelatorio(pedido11,imposto,frete,imposto);
+
             }catch (InterruptedException e){
                 System.out.println("Processo interrompido."+e.getMessage());
                 Thread.currentThread().interrupt();

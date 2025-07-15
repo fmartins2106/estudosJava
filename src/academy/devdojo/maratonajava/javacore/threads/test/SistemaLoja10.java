@@ -1,6 +1,5 @@
 package academy.devdojo.maratonajava.javacore.threads.test;
 
-import academy.devdojo.maratonajava.javacore.threads.dominio.CalcularFrete10;
 import academy.devdojo.maratonajava.javacore.threads.dominio.ConsumidorDePedidos10;
 import academy.devdojo.maratonajava.javacore.threads.dominio.Pedido10;
 import academy.devdojo.maratonajava.javacore.threads.dominio.ProdutorDePedidos10;
@@ -11,7 +10,7 @@ public class SistemaLoja10 {
     public static void main(String[] args) throws InterruptedException{
         BlockingQueue<Pedido10> filaPedido = new LinkedBlockingQueue<>();
         int nThreads = Runtime.getRuntime().availableProcessors();
-        System.out.println("Núcles disponíveis:"+nThreads);
+        System.out.println("Núcleos disponíveis:"+nThreads);
 
         ExecutorService executorCalculo = Executors.newFixedThreadPool(nThreads);
         ExecutorService executorSistema = Executors.newFixedThreadPool(2);
