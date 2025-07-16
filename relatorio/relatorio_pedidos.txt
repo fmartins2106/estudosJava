@@ -86,3 +86,12 @@
 [15/07/2025 09:55:21] -> ID:#7 |Cliente:Fernando |Valor:R$416,39 |Imposto:R$62,46 |Frete:R$40,82 |Total:R$519,67
 [15/07/2025 09:55:23] -> ID:#8 |Cliente:Maria |Valor:R$309,65 |Imposto:R$46,45 |Frete:R$35,48 |Total:R$391,58
 [15/07/2025 09:55:25] -> ID:#9 |Cliente:Joana |Valor:R$118,91 |Imposto:R$17,84 |Frete:R$25,95 |Total:R$162,70
+[16/07/2025 10:09:56] -> ID:#1 |Cliente:José |Valor:R$487,43 |Imposto:R$73,11 |Total:R$44,37
+[16/07/2025 10:09:59] -> ID:#2 |Cliente:Joana |Valor:R$385,26 |Imposto:R$57,79 |Total:R$39,26
+[16/07/2025 10:10:01] -> ID:#3 |Cliente:José |Valor:R$74,41 |Imposto:R$11,16 |Total:R$23,72
+[16/07/2025 10:10:03] -> ID:#4 |Cliente:José |Valor:R$448,46 |Imposto:R$67,27 |Total:R$42,42
+[16/07/2025 10:10:05] -> ID:#5 |Cliente:José |Valor:R$231,42 |Imposto:R$34,71 |Total:R$31,57
+[16/07/2025 10:10:07] -> ID:#6 |Cliente:Marta |Valor:R$369,01 |Imposto:R$55,35 |Total:R$38,45
+[16/07/2025 10:10:09] -> ID:#7 |Cliente:Joana |Valor:R$283,27 |Imposto:R$42,49 |Total:R$34,16
+[16/07/2025 10:10:11] -> ID:#8 |Cliente:Fernando |Valor:R$100,34 |Imposto:R$15,05 |Total:R$25,02
+[16/07/2025 10:10:13] -> ID:#9 |Cliente:Marta |Valor:R$68,78 |Imposto:R$10,32 |Total:R$23,44
