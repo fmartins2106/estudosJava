@@ -18,7 +18,7 @@ public class CadastroConsulta02 implements Consultavel02{
         this.valorConsulta = valorConsulta;
         this.dataHora = dataHora;
     }
-
+    
     @Override
     public String getPaciente() {
         return paciente;

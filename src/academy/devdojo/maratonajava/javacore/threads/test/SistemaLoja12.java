@@ -22,6 +22,7 @@ public class SistemaLoja12 {
         Thread.sleep(20000);
 
         executorCalculo.shutdownNow();
+
         while (!filaPedio.isEmpty()){
             Thread.sleep(500);
         }
@@ -31,9 +32,9 @@ public class SistemaLoja12 {
             System.out.println("Forçando encerramento do sistema...");
             executorSistema.shutdownNow();
         }
+
         System.out.println("Sistema encerrado.");
         executorSistema.awaitTermination(5,TimeUnit.SECONDS);
         System.out.println("Sistema finalizado.");
-
     }
 }

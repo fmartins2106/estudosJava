@@ -7,27 +7,27 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 
-public class ProdutorDePedidos12 implements Runnable{
-    public final BlockingQueue<Pedido12> filaPedido;
-    public final List<String> clientes = Arrays.asList("Maria","Marta","Fernando","Joana","José");
+public class ProdutorDePedidos13 implements Runnable{
+    public final BlockingQueue<Pedido13> filaPedido;
+    public final List<String> clientes = Arrays.asList("Maria","Joana","Marta","Fernando","José");
     public final Random random = new Random();
 
-    public ProdutorDePedidos12(BlockingQueue<Pedido12> filaPedido) {
+    public ProdutorDePedidos13(BlockingQueue<Pedido13> filaPedido) {
         this.filaPedido = filaPedido;
     }
 
     @Override
-    public void run() {
+    public void run(){
         while (!Thread.currentThread().isInterrupted()){
             try {
                 String cliente = clientes.get(random.nextInt(clientes.size()));
-                double valorDoPedido = 50 + random.nextDouble(450);
-                BigDecimal valor = BigDecimal.valueOf(valorDoPedido).setScale(2,RoundingMode.HALF_UP);
-                Pedido12 pedido12 = new Pedido12(cliente,valor);
+                double valor = 50 + random.nextDouble(450);
+                BigDecimal valorFinal = BigDecimal.valueOf(valor).setScale(2,RoundingMode.HALF_UP);;
+                Pedido13 pedido13 = new Pedido13(cliente,valorFinal);
 
-                filaPedido.put(pedido12);
+                filaPedido.put(pedido13);
 
-                System.out.println("Adicionando pedido na fila:"+pedido12);
+                System.out.println("Pedido adicionado na fila:"+pedido13);
 
                 Thread.sleep(1000 + random.nextInt(2000));
             }catch (InterruptedException e){
