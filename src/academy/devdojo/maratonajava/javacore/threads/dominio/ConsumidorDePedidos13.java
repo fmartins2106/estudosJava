@@ -28,7 +28,7 @@ public class ConsumidorDePedidos13 implements Runnable{
                 BigDecimal imposto = impostoFuturo.get();
                 BigDecimal frete = freteFuturo.get();
 
-                BigDecimal total = pedido13.getValor().add(frete).add(imposto);
+                BigDecimal total = pedido13.getValor().add(imposto).add(frete);
 
                 System.out.printf("ID:#%d |Cliente:%s |Valor:R$%.2f |Imposto:R$%.2f |Frete:R$%.2f |Total:R$%.2f\n\n",
                         pedido13.getId(),pedido13.getCliente(),pedido13.getValor(),imposto,frete,total);

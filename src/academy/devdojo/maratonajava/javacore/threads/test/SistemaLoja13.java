@@ -21,15 +21,15 @@ public class SistemaLoja13 {
 
         Thread.sleep(20000);
 
-        executorCalculo.shutdown();
+        executorCalculo.shutdownNow();
         while (!filaPedido.isEmpty()){
             Thread.sleep(500);
         }
 
-        executorSistema.shutdown();
+        executorSistema.shutdownNow();
         if (!executorCalculo.awaitTermination(5, TimeUnit.SECONDS)){
             System.out.println("Forçando encerramento do sistema...");
-            executorSistema.shutdown();
+            executorSistema.shutdownNow();
         }
 
         System.out.println("Sistema encerrado.");
