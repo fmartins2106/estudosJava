@@ -44,6 +44,8 @@ public class CadastroConsulta02 implements Consultavel02{
         return dataHora;
     }
 
+
+//    comentario somente para teste do git hub
     @Override
     public String toString(){
         DateTimeFormatter dataHoraFormatada = DateTimeFormatter.ofPattern("dd/MM/yyy HH:mm:ss");
